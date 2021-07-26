@@ -1,0 +1,113 @@
+.grid-list {
+    display: flex;
+    //flex: 1;
+
+    &-content {
+        display: flex;
+
+        flex: 1;
+        flex-direction: column;
+        overflow: hidden;
+
+        &:first-child {
+            flex: none;
+        }
+
+        &:last-child {
+            flex: 0 100%;
+        }
+    }
+
+    &-zone {
+        &-fixed {
+            overflow: hidden;
+            flex: 100% 0;
+            height: 100%;
+        }
+        &-data {
+            overflow: hidden;
+            flex: 100% 0;
+            height: 100%;
+            .grid-list-col {
+                &:last-child {
+                    max-width: 11140px;
+                    flex: 0 1 100% !important;
+                }
+            }
+        }
+        &-fixed {
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+
+            .grid-list-row {
+                flex: 1;
+                .grid-list-col {
+                    .cell-cmps {
+                        display: flex;
+                        > div {
+                            flex: 1;
+                            margin-right: 2px;
+                        }
+
+                        input[type="checkbox"] {
+                            min-height: auto;
+                            cursor: pointer;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &-body {
+        //flex: 100% 0;
+
+        height: 100%;
+        .cell {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            width: 100%;
+            margin-top: 1px;
+        }
+        .grid-list-col {
+            min-width: 40px;
+            &.grid-col-actions {
+                overflow: hidden;
+                max-height: 26px;
+                min-width: auto;
+            }
+        }
+    }
+
+    &-row,
+    &-header {
+        //background-color: #f1f1f1;
+        display: flex;
+        flex: 1;
+        min-height: 26px;
+        &-col {
+            font-weight: bolder;
+
+            &:last-child {
+                max-width: 11140px;
+                flex: 0 1 100% !important;
+            }
+        }
+    }
+
+    &-header {
+        overflow: hidden;
+    }
+
+    &-header-col,
+    &-col {
+        display: flex;
+        flex: 1;
+        padding: 3px 6px 3px 8px;
+        min-height: 28px;
+        max-width: 100px;
+        cursor: pointer;
+    }
+}

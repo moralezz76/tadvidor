@@ -1,0 +1,27 @@
+.form-fields {
+    &.in-columns {
+        display: flex;
+        flex-direction: row;
+        .card {
+            flex: 1;
+        }
+    }
+    .footer-buttons {
+        padding: 0px 5px;
+        display: flex;
+        > button {
+            margin: 0px 5px;
+            flex: 1;
+        }
+    }
+
+    h6 {
+        padding: 11px 10px 9px 10px;
+        border-bottom: 1px dotted #e1e1e1;
+        color: #666666;
+    }
+
+    .input-group {
+        background-color: #ffffff;
+    }
+}

@@ -1,0 +1,41 @@
+.top-rule {
+    display: flex;
+    max-height: 30px;
+    border-bottom: 1px solid #e1e1e1;
+    background-color: #ebeced;
+    .hour-rule {
+        display: flex;
+        flex: 1;
+        border-right: 1px solid #cccccc;
+        margin-bottom: 5px;
+        > DIV {
+            flex: 1;
+            border-right: 1px solid #dddddd;
+            border-left: 1px solid #f0f0f0;
+            margin-bottom: 10px;
+        }
+        > DIV:last-child {
+            border: 0;
+        }
+
+        .title {
+            position: absolute;
+            margin-top: 15px;
+            font-size: 9px;
+            padding-left: 1px;
+        }
+
+        .selected {
+            background-color: rgba($color: green, $alpha: 0.05);
+        }
+    }
+    .rule-padding {
+        min-width: 20px;
+        margin-bottom: 5px;
+        border-right: 1px solid #cccccc;
+        > DIV {
+            margin: 15px 5px 0px 2px;
+            font-size: 9px;
+        }
+    }
+}

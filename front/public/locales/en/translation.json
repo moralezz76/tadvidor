@@ -1,0 +1,53 @@
+{
+  "labelAsnName": "Asn name",
+  "labelEmail": "Email",
+  "labelPassword": "Password",
+  "labelStartSession": "Start Session",
+  "labelShow10": "Show +10",
+  "labelShowAll": "Show all",
+
+  "placeholderAsnName": "Enter asn name...",
+  "placeholderEmail": "Enter a valid email",
+  "placeholderPassword": "Enter your password",
+
+  "menuProviderNetwork": "Provider Network",
+  "menuFindAsn": "Find Asn",
+  "menuReserved1": "Reserved 1",
+  "menuReserved2": "Reserved 2",
+  "menuReserved3": "Reserved 3",
+  "menuProfile": "Profile",
+  "menuFavorites": "Favorites",
+  "menuCustomers": "Customers",
+  "menuAsCustomers": "AS Customers",
+
+  "textSaludation": "Hi",
+  "textDisconnect": "Disconnect",
+  "textNoResults": "(no results...)",
+  "textAreYouSure": "Are you sure?",
+  "textProviderReport": "Research a specific provider, explore market presence, network, customer relationshops, and more. Country code selected: ",
+  "textFindByCountry": "Find by Country",
+  "textNow": "Now",
+
+  "successAddFav": "Asn added to favorites!",
+  "successLogin": "Login success!",
+  "successLogout": "Logout success!",
+
+  "titleLogout": "Logout",
+  "titleGlobalIPV4": "Global IPv4 Internet Index Ratings",
+  "titleIPV4AsCustomers": "IPV4 AS Customers",
+  "titleServiceType": "Service Type",
+
+  "buttonYesLogoutNow": "Yes! Logout Now...",
+
+  "titleViewByMarkets": "View by Markets",
+  "titleViewByRankings": "View by Rankings",
+  "titleIPv4CustomerBase": "IPv4 Customer Base",
+
+  "menuAllRankings": "All Rankings",
+  "menuCustomerBase": "Customer Base",
+  "menuRetail": "Retail",
+  "menuWholesale": "Wholesale",
+  "menuBackbone": "Backbone",
+  "menuCustomerGrowth": "Customer Growth",
+  "menuPeeringBase": "Peering Base"
+}

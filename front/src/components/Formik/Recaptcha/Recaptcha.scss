@@ -1,0 +1,17 @@
+.recaptcha-control {
+    min-height: 80px;
+    DIV {
+        DIV {
+            text-align: -webkit-center;
+        }
+    }
+    &.is-invalid {
+        DIV DIV DIV IFRAME {
+            border: 1px solid red;
+            border-radius: 3px;
+        }
+    }
+    ~ .invalid-feedback {
+        text-align: -webkit-center;
+    }
+}

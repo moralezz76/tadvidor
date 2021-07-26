@@ -1,0 +1,12 @@
+# Crear una aplicación react con typescript
+    
+    npx create-react-app my-app --template typescript
+
+# Adicionar libreria de permisos 
+    
+    npm install @casl/react @casl/ability
+
+    - https://www.paradigmadigital.com/techbiz/gestionando-permisos-react-casl/
+
+
+

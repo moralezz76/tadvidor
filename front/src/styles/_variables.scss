@@ -1,0 +1,118 @@
+$font-default: "Arial";
+
+//Colors
+$blue: #2799f0;
+$green: #3bd5a9;
+$yellow: #ffc95c;
+$cyan: #3bcfd5;
+$purple: #9e55b8;
+$black: #1d1d1b;
+$gray: #4a4a48;
+
+//Grays
+$gray-100: #f7f7f7;
+$gray-200: #f3f3f3;
+$gray-300: #e8e8e8;
+$gray-400: #d1d1d1;
+$gray-500: #a4a4a3;
+$gray-600: #777776;
+$gray-800: #323231;
+
+//Red
+$red-b600: #660000;
+$red-b400: #990000;
+$red-b200: #cc0000;
+$red: #ff0000;
+$red-w400: #ff5c5c;
+$red-w600: #ff9999;
+$red-w650: #f29ea2;
+$red-w700: #ffb8b8;
+$red-w850: #ffdbdb;
+$red-w900: #ffe6e6;
+$red-w950: #fff2f2;
+
+// Array of colors from _variables.scss
+$bg-default: #3a4651;
+$deposit-fraud-color: #ffc2c2;
+$deposit-test-color: #b6d5f6;
+
+$primary: $blue;
+$secondary: $gray;
+$success: $green;
+$info: $cyan;
+$warning: $yellow;
+$danger: $red-w400;
+$light: $gray-100;
+$dark: $bg-default;
+
+$theme-colors: (
+  primary: $blue,
+  success: $green,
+  info: $cyan,
+  warning: $yellow,
+  danger: $red-w400,
+  dark: $bg-default,
+  secondary: $gray,
+);
+
+.bg-gray-500 {
+  background-color: $gray-500 !important;
+}
+
+.bg-light-pink {
+  background: #fcaed7 !important;
+}
+
+.bg-purple {
+  background: $purple !important;
+}
+
+.bg-gray {
+  background-color: $gray;
+}
+
+.bg-deposit-fraud {
+  background-color: $deposit-fraud-color !important;
+  td {
+    background-color: $deposit-fraud-color !important;
+  }
+}
+
+.bg-deposit-test {
+  background-color: $deposit-test-color !important;
+  td {
+    background-color: $deposit-test-color !important;
+  }
+}
+
+$border-default: #969696;
+$color-default: $gray;
+$color-light: $gray-500;
+$company-color: #a9cf2d;
+
+$mobile-max-width: 767px;
+$tablet-min-width: 768px;
+$desktop-min-width: 1024px;
+
+@mixin mobile {
+  @include media-breakpoint-down(md) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @include media-breakpoint-down(lg) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @include media-breakpoint-up(lg) {
+    @content;
+  }
+}
+
+// Custom variables
+$default-width-column: 88px;
+$default-height-row: 48px;
+$default-height-menu: 40px;

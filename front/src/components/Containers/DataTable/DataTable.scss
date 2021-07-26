@@ -1,0 +1,39 @@
+.data-table {
+    overflow: hidden !important;
+    background-color: white;
+    display: flex;
+
+    .grid-list {
+        flex: 1;
+        &-row {
+            &.over {
+                background-color: #f8f8f8;
+            }
+        }
+
+        &-header-col {
+            background-color: #f1f1f1;
+            border-right: 1px solid #e8e8e8 !important;
+            border-bottom: 1px solid #e8e8e8 !important;
+        }
+        &-header-col,
+        &-col {
+            border-bottom: 1px solid #f1f1f1;
+            border-right: 1px solid #f1f1f1;
+            min-width: 200px;
+        }
+
+        &-header-empty {
+            flex: 1;
+            background-color: #f1f1f1;
+            border-right: 1px solid #e8e8e8 !important;
+        }
+    }
+
+    .filter-table {
+        flex: 1;
+        padding: 0px 5px;
+        background-color: #f8f8f8;
+        border-left: 1px solid #e1e1e1;
+    }
+}

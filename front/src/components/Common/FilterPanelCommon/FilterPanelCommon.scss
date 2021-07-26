@@ -1,0 +1,25 @@
+.filter-table {
+    display: flex;
+    max-width: 260px;
+    .form-fields {
+        display: flex;
+        flex: 1;
+        .btn-light {
+            border: 1px solid #c9c9c9;
+            border-top: 1px solid #dddddd;
+            border-left: 1px solid #dddddd;
+        }
+
+        > div {
+            flex: 1;
+        }
+
+        .footer-buttons {
+            max-height: 55px;
+        }
+    }
+
+    .card-container-body {
+        display: block;
+    }
+}

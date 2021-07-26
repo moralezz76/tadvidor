@@ -1,0 +1,96 @@
+//@import "../../../styles/index.scss";
+
+.drop-zone {
+  padding: 0;
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    border: 2px dashed #cccccc;
+    border-radius: 4px;
+    background-color: white;
+    padding: 10px 20px;
+    cursor: default;
+
+    &.is-invalid {
+      border: 2px dashed #ff8484;
+
+      .drop-zone__icon {
+        color: #ff8484;
+      }
+    }
+  }
+
+  &__input {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    outline: none;
+    cursor: pointer;
+  }
+
+  &:hover {
+    border-color: black;
+  }
+
+  &__label {
+    color: #808080;
+    margin: 3px;
+
+    em {
+      font-size: 12px;
+    }
+  }
+
+  &__icon {
+    font-size: 30px;
+    margin-bottom: 7px;
+    color: #2799f0;
+  }
+
+  &__remove {
+    margin-left: 12px;
+    color: #ff8484;
+    margin-top: -3px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+
+  &--selected {
+    border-color: #999999;
+  }
+
+  &__files {
+    display: flex;
+    flex-direction: column;
+    line-height: 17px;
+    font-size: 14px;
+
+    &__content {
+      margin: 5px 0;
+
+      .size {
+        color: #a4a4a3;
+        font-size: 13px;
+        margin-left: 5px;
+      }
+    }
+  }
+
+  &__rules {
+    padding-top: 5px;
+    font-size: 14px;
+    color: #808080;
+  }
+}
+
+.with-border {
+  padding-bottom: 5px;
+  margin-bottom: 5px;
+  border-bottom: 1px solid gray;
+}

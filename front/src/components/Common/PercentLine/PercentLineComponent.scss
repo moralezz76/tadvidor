@@ -1,0 +1,8 @@
+.percent-line {
+  border: 1px solid #6060a7;
+  height: 9px;
+  > div {
+    background-color: #6060a7;
+    height: 8px;
+  }
+}

@@ -1,0 +1,83 @@
+.menu-list {
+  .list-item {
+    padding: 2px 4px 1px;
+    cursor: pointer;
+    &:nth-child(odd) {
+      background-color: #ece6dc;
+    }
+    &:nth-child(even) {
+      background-color: #f2f3ee;
+    }
+    &:hover,
+    &.selected {
+      background-color: #efd186;
+    }
+  }
+
+  &.as-blue {
+    .list-item {
+      > div {
+        padding: 2px 4px 1px;
+      }
+      cursor: pointer;
+      &:nth-child(odd) {
+        background-color: #d5e0ee;
+      }
+      &:nth-child(even) {
+        background-color: #e9edf3;
+      }
+      &:hover,
+      &.selected {
+        background-color: #efd186;
+      }
+    }
+  }
+
+  span {
+    border: 1px solid #666;
+    display: inline-block;
+    height: 10px;
+    border-radius: 2px;
+    width: 10px;
+
+    &::after {
+      content: '-';
+      position: absolute;
+      margin-top: -11px;
+      margin-left: 1px;
+      color: #666;
+      font-size: 20px;
+    }
+
+    &.expanded {
+      &::after {
+        content: '+';
+        margin-top: -5px;
+        font-size: 12px;
+        margin-left: 1px;
+      }
+    }
+  }
+}
+
+.find-text {
+  display: flex;
+  .label {
+    flex: 2;
+    display: flex;
+    align-items: center;
+    flex-direction: row-reverse;
+    margin-right: 4px;
+  }
+  .input {
+    flex: 3;
+    input {
+      width: 99%;
+      margin: 2px;
+    }
+  }
+}
+
+.resalt {
+  background-color: #efd186;
+}

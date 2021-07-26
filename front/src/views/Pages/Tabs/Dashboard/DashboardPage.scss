@@ -1,0 +1,58 @@
+.dashboard {
+    .viewer {
+        padding: 10px;
+    }
+
+    .form-fields {
+        padding: 10px;
+        max-width: 380px;
+        .card-container {
+            border: 0px;
+        }
+    }
+    .result-div {
+        padding: 0px 15px;
+        label {
+            margin-bottom: 3px;
+        }
+    }
+    .list {
+        .cell {
+            display: flex;
+            align-items: center;
+            font-weight: bolder;
+        }
+        .cell-0 {
+            margin-left: 20px;
+            max-width: 100px;
+            color: rgb(66, 71, 230);
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+
+        .cell-1 {
+            flex: 5 !important;
+        }
+
+        .cell-1,
+        .cell-2 {
+            padding-right: 20px;
+
+            svg {
+                border-radius: 2px;
+                border: 1px solid #a59ae2;
+                font-size: 22px;
+                padding: 2px;
+                margin: 2px 2px 3px;
+
+                &:hover {
+                    background-color: #a59ae2;
+                }
+            }
+        }
+        .cell-2 {
+            text-align: right;
+        }
+    }
+}

@@ -1,0 +1,28 @@
+.tabs {
+    display: flex;
+    flex-direction: column;
+    > div {
+        flex: 1;
+    }
+    .tab-list {
+        border-bottom: 1px solid #666;
+        margin: 0px;
+        max-height: 28px;
+
+        ol {
+            padding-inline-start: 25px;
+        }
+    }
+
+    .tab {
+        &-list {
+            ol {
+                margin: 0px;
+            }
+        }
+        &-content {
+            padding: 10px; 
+            background-color: #f7f7f7;
+        }
+    }
+}

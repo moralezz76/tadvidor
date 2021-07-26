@@ -1,0 +1,111 @@
+@import "variables";
+//@import "custom_bootstrap";
+@import "~bootstrap/scss/bootstrap.scss";
+//@import 'animations';
+@import "toastr.scss";
+
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+@import "~bootstrap/scss/root";
+@import "~bootstrap/scss/reboot";
+@import "~bootstrap/scss/type";
+
+@import "~bootstrap/scss/forms";
+@import "~bootstrap/scss/buttons";
+//@import '~bootstrap/scss/button-group';
+@import "~bootstrap/scss/input-group";
+//@import '~bootstrap/scss/custom-forms';
+//@import '~bootstrap/scss/buttons';
+@import "~bootstrap/scss/utilities";
+@import "~bootstrap/scss/print";
+@import "~bootstrap/scss/modal";
+@import "~bootstrap/scss/input-group";
+//@import "~bootstrap/scss/forms";
+
+/*@import '~bootstrap/scss/images';
+@import '~bootstrap/scss/code';
+@import '~bootstrap/scss/grid';
+@import '~bootstrap/scss/tables';
+@import '~bootstrap/scss/forms';
+@import '~bootstrap/scss/buttons';
+@import '~bootstrap/scss/transitions';
+@import '~bootstrap/scss/dropdown';
+@import '~bootstrap/scss/button-group';
+@import '~bootstrap/scss/input-group';
+@import '~bootstrap/scss/custom-forms';
+@import '~bootstrap/scss/nav';
+@import '~bootstrap/scss/navbar';
+@import '~bootstrap/scss/card';
+@import '~bootstrap/scss/breadcrumb';
+@import '~bootstrap/scss/pagination';
+@import '~bootstrap/scss/badge';
+@import '~bootstrap/scss/jumbotron';
+@import '~bootstrap/scss/alert';
+@import '~bootstrap/scss/progress';
+@import '~bootstrap/scss/media';
+@import '~bootstrap/scss/list-group';
+@import '~bootstrap/scss/close';
+@import '~bootstrap/scss/toasts';
+@import '~bootstrap/scss/modal';
+@import '~bootstrap/scss/tooltip';
+@import '~bootstrap/scss/popover';
+@import '~bootstrap/scss/carousel';
+@import '~bootstrap/scss/spinners';
+@import '~bootstrap/scss/utilities';
+@import '~bootstrap/scss/print';*/
+
+@import "fonts";
+
+html,
+body {
+  height: 100vh;
+  font-family: $font-family-regular;
+  font-size: 13px;
+}
+
+.required-asterix {
+  color: red;
+}
+
+textarea {
+  resize: none;
+}
+
+.invalid-feedback {
+  display: block;
+}
+
+.is-invalid div:first-child {
+  border-color: red !important;
+}
+
+#root {
+  height: 100%;
+  display: flex;
+}
+
+.unsel {
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE10+/Edge */
+  user-select: none; /* Standard */
+}
+
+.spin {
+  -webkit-animation: 1s spin linear infinite;
+  animation: 1.5s spin linear infinite;
+  margin: -3px 2px 0px;
+}
+
+@keyframes spin {
+  from {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  to {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}

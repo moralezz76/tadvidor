@@ -1,0 +1,142 @@
+.select-input1 {
+    .extra-icons {
+        .close-icon {
+            cursor: pointer;
+        }
+        svg {
+            font-size: 16px;
+            color: #999999;
+            margin: 7px 5px 0px 0px;
+        }
+    }
+
+    &.with-focus {
+        /* element has focusable */
+
+        .input-group {
+            transition: border-color 0.2s, box-shadow 0.3s;
+            border-color: rgb(170, 209, 239);
+            box-shadow: 0px 0px 0px 3px rgba(3, 3, 4, 0.357);
+            &.is-invalid {
+                border-color: #ff6666;
+                box-shadow: 0px 0px 0px 3px rgba(255, 0, 0, 0.15);
+                svg {
+                    color: red;
+                }
+            }
+        }
+
+        input {
+            /* show input */
+            opacity: 1 !important;
+        }
+    }
+
+    .html-content {
+        /* visible element when lost focus */
+        position: absolute;
+        //color: #666666;
+        color: red;
+        pointer-events: none;
+        white-space: nowrap;
+        padding: 6px 10px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    input, /* remove borders to components*/
+    .input-group-text {
+        border: none;
+        box-shadow: none !important;
+    }
+
+    /* style for dropdown icon */
+    .input-group-append {
+        .icon-with-pointer {
+            padding: 0px 7px;
+            margin: 3px 3px 4px;
+            border-left: 1px solid #cccccc;
+            background-color: white;
+            svg {
+                font-weight: bolder;
+                font-size: 16px;
+
+                //margin: 4px;
+            }
+        }
+    }
+
+    /* style for input and dropdown content */
+    .input-group {
+        height: 32px;
+        border: 1px solid #d1d1d1;
+        overflow: hidden;
+        border-radius: 3px;
+        input {
+            opacity: 0;
+            margin-top: -1px;
+        }
+
+        /*
+        &.toggled {
+            border-bottom-left-radius: 0px !important;
+            border-bottom-right-radius: 0px !important;
+            box-shadow: 0px 0px 2px 2px rgb(170, 209, 239);
+        }
+        */
+    }
+
+    /*&.with-focus {
+        .input-group {
+            box-shadow: 0px 0px 2px 2px rgb(170, 209, 239);
+        }
+    }
+    .select-icon {
+        font-size: 16px;
+        color: #999999;
+        margin-top: 6px;
+        margin-left: 5px;
+
+        &.close-x {
+            margin-top: 7px;
+            margin-right: 5px;
+            cursor: pointer;
+        }
+    }
+
+    .no-items {
+        color: #999999;
+        padding: 4px 10px;
+        display: inline-block;
+        font-size: 12px;
+    }
+    .input-group-append {
+        cursor: pointer;
+    }
+
+   
+    input,
+    .input-group-text {
+        border: none;
+        box-shadow: none !important;
+    }
+
+    .html-content {
+        position: absolute;
+
+        color: #666666;
+        pointer-events: none;
+
+        white-space: nowrap;
+        //background-color: yellow;
+        padding: 6px 10px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    
+
+    .toggle-list-body {
+        box-shadow: 0px 0px 3px 2px rgb(170, 209, 239);
+    }*/
+}

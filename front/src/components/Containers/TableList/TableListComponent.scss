@@ -1,0 +1,37 @@
+.table-list {
+    > .list {
+        display: flex;
+        flex-direction: column;
+        .list-row {
+            flex: 1;
+            display: flex;
+            .cell {
+                flex: 1;
+            }
+        }
+    }
+
+    &.viewer {
+        .cell-0 {
+            max-width: 130px;
+            text-align: right;
+            margin-right: 20px;
+            font-weight: bolder;
+        }
+    }
+
+    .link {
+        color: rgb(128, 128, 225);
+        text-decoration: underline;
+        cursor: pointer;
+        font-size: 10px;
+        font-weight: bolder;
+        margin: 0px 10px 2px;
+    }
+
+    .empty-text {
+        color: #999999;
+        font-weight: normal;
+        font-style: italic;
+    }
+}

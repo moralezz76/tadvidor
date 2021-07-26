@@ -1,0 +1,58 @@
+.custom-button {
+    display: inline-block;
+    cursor: pointer;
+    .separ {
+        border-bottom: 1px solid #cccccc;
+    }
+
+    .grid-list-header {
+        display: none;
+    }
+
+    &-toggled {
+        position: absolute !important;
+        right: 7px;
+        min-width: 120px;
+        display: inline-block;
+        height: 0px;
+
+        .custom-button-input-content {
+            height: 0px;
+            input {
+                width: 0px;
+                opacity: 0;
+            }
+        }
+    }
+
+    svg {
+        font-size: 17px;
+    }
+
+    &:hover {
+        background-color: #dddddd;
+    }
+
+    &.disabled {
+        opacity: 0.3;
+    }
+
+    &.rounded {
+        background-color: #eeeeee;
+        border-radius: 50% !important;
+        min-width: 23px;
+        min-height: 22px;
+        padding-left: 3px;
+        padding-top: 1px;
+        margin-top: -1px;
+    }
+
+    &.tool-button {
+        border-radius: 3px;
+        padding: 4px 6px;
+
+        span {
+            margin-left: 6px;
+        }
+    }
+}

@@ -1,0 +1,26 @@
+.svg-container {
+    width: 100%;
+    min-height: 250px;
+    display: table;
+    > div {
+        display: table-cell;
+        text-align: center;
+        vertical-align: middle;
+        svg {
+            display: inline-block;
+            text-align: center;
+        }
+    }
+    -webkit-user-select: none; /* Safari */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+/Edge */
+    user-select: none; /* Standard */
+}
+
+.arrowHead {
+    stroke-width: 5;
+    stroke: #000;
+    stroke-dasharray: 5, 5;
+    stroke-width: 1;
+    stroke-dasharray: 0;
+}

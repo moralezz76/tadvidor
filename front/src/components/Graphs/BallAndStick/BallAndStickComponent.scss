@@ -1,0 +1,57 @@
+.ball-and-stick {
+    padding: 0px;
+
+    path {
+        fill: none;
+        stroke: #cccccc;
+    }
+
+    rect,
+    text {
+        cursor: pointer;
+
+        &.selected {
+            fill: #ffffff;
+        }
+    }
+
+    rect {
+        &.selected {
+        }
+    }
+
+    .flowline {
+        fill: none;
+        opacity: 0.5;
+        stroke: #2378ae;
+        stroke-width: 2 !important;
+        stroke-dasharray: 10, 4;
+        animation: flow 1s linear infinite;
+        -webkit-animation: flow 1s linear infinite;
+    }
+
+    .node-selected {
+        fill: #2378ae !important;
+        color: #333333;
+    }
+}
+
+@keyframes flow {
+    from {
+        stroke-dashoffset: 14;
+    }
+
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+@-webkit-keyframes flow {
+    from {
+        stroke-dashoffset: 14;
+    }
+
+    to {
+        stroke-dashoffset: 0;
+    }
+}

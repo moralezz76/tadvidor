@@ -1,0 +1,26 @@
+.main-menu {
+    .item {
+        color: #454545;
+        padding-left: 10px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        border-bottom: 1px solid #d9d9d9;
+        cursor: pointer;
+        svg {
+            font-size: 20px;
+            margin-right: 7px;
+            margin-top: -1px;
+        }
+        &:hover,
+        &.active {
+            background-color: #dddddd;
+            font-weight: bold;
+        }
+    }
+    .sub-menu {
+        .item {
+            padding-left: 32px;
+        }
+    }
+}

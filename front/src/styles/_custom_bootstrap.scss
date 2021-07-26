@@ -1,0 +1,89 @@
+// Links
+$link-hover-decoration: none;
+
+//Inputs
+$input-group-addon-bg: none;
+$component-active-bg: $black;
+$input-btn-focus-box-shadow: none;
+$border-focus: lighten($black, 25%);
+
+//Select
+$custom-select-focus-box-shadow: none;
+
+//Buttons
+$input-btn-focus-width: 0.1rem;
+
+//Form validations
+$form-feedback-valid-color: $black;
+$form-feedback-invalid-color: $red;
+$form-feedback-font-size: 10px;
+
+// Alerts
+$alert-bg-level: 0;
+$alert-border-level: 0;
+
+// Custom control
+$custom-control-indicator-size: 1.1rem;
+$custom-control-indicator-bg: $gray-400;
+$custom-control-indicator-border-color: none;
+
+// Overrides
+.input-group .input-group-text,
+.input-group .form-control {
+  -moz-transition: none 1s;
+  -o-transition: none 1s;
+  -webkit-transition: none 1s;
+  transition: none 1s;
+}
+
+.input-group {
+  &.default-input-group {
+    .form-control {
+      border-right: 0;
+      background-color: inherit;
+
+      & + .input-group-append .input-group-text {
+        border-left: 0;
+      }
+
+      &:focus {
+        & + .input-group-append .input-group-text {
+          outline: 0;
+          border-color: $border-focus;
+        }
+      }
+    }
+
+    .form-control.is-invalid {
+      border-right: 0;
+
+      & + .input-group-append .input-group-text {
+        border-left: 0;
+        border-color: $red;
+        background-color: $red-w950;
+        color: $red;
+      }
+
+      &:focus {
+        & + .input-group-append .input-group-text {
+          outline: 0;
+          border-color: $red;
+          background-color: white;
+        }
+      }
+    }
+  }
+}
+
+.form-control.is-invalid {
+  background-color: $red-w950;
+  color: $red;
+}
+
+.form-control.is-invalid:focus {
+  box-shadow: none !important;
+}
+
+li.navbar-item a {
+  height: auto !important;
+}

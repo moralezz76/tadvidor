@@ -1,0 +1,96 @@
+{
+  "name": "dashby",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@casl/ability": "^4.1.6",
+    "@casl/react": "^2.1.1",
+    "@testing-library/jest-dom": "^5.11.5",
+    "@testing-library/react": "^11.1.0",
+    "@testing-library/user-event": "^12.1.10",
+    "@types/bootstrap": "^5.0.0",
+    "@types/classnames": "^2.2.11",
+    "@types/d3": "^6.3.0",
+    "@types/jest": "^26.0.15",
+    "@types/lodash": "^4.14.162",
+    "@types/node": "^12.19.1",
+    "@types/react": "^16.9.53",
+    "@types/react-bootstrap": "^0.32.24",
+    "@types/react-custom-scrollbars": "^4.0.7",
+    "@types/react-day-picker": "^5.3.0",
+    "@types/react-dom": "^16.9.8",
+    "@types/react-google-recaptcha": "^2.1.0",
+    "@types/react-icons": "^3.0.0",
+    "@types/react-redux": "^7.1.9",
+    "@types/react-router-dom": "^5.1.6",
+    "@types/react-toast-notifications": "^2.4.0",
+    "@types/react-toastr": "^3.0.4",
+    "@types/redux-actions": "^2.6.1",
+    "@types/yup": "^0.29.9",
+    "animate.css": "^4.1.1",
+    "axios": "^0.21.1",
+    "bootstrap": "^4.5.3",
+    "classnames": "^2.2.6",
+    "d3": "^6.5.0",
+    "formik": "^2.2.1",
+    "i18next": "^19.8.2",
+    "i18next-browser-languagedetector": "^6.0.1",
+    "i18next-xhr-backend": "^3.2.2",
+    "lodash": "^4.17.20",
+    "moment": "^2.29.1",
+    "node-sass": "^4.14.1",
+    "react": "^17.0.1",
+    "react-bootstrap": "^1.4.0",
+    "react-custom-scrollbars": "^4.2.1",
+    "react-day-picker": "^7.4.10",
+    "react-dom": "^17.0.1",
+    "react-dropzone": "^11.2.4",
+    "react-google-recaptcha": "^2.1.0",
+    "react-i18next": "^11.7.3",
+    "react-icons": "^3.11.0",
+    "react-intl": "^5.8.6",
+    "react-json-view-ts": "^1.16.7",
+    "react-redux": "^7.2.1",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "4.0.0",
+    "react-toast-notifications": "^2.4.0",
+    "react-toastr": "^3.0.0",
+    "react-toastr2": "^3.0.4",
+    "redux": "^4.0.5",
+    "redux-actions": "^2.6.5",
+    "redux-thunk": "^2.3.0",
+    "reselect": "^4.0.0",
+    "toastr": "^2.1.4",
+    "typesafe-actions": "^5.1.0",
+    "typescript": "^4.0.3",
+    "web-vitals": "^0.2.4",
+    "yup": "^0.29.3"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "file-loader": "^6.2.0"
+  }
+}

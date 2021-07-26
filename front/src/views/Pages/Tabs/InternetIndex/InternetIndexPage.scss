@@ -1,0 +1,61 @@
+.internet-index {
+  .menu-zone {
+    > div {
+      margin-bottom: 10px;
+    }
+  }
+
+  .block-list {
+    .table-block {
+      .cell-0 {
+        max-width: 22px;
+        border-right: 1px solid #cccccc;
+        b {
+          color: rgb(62, 62, 212);
+        }
+      }
+      .cell-1 {
+        border-right: 1px solid #cccccc;
+        max-width: 34px;
+        b {
+          font-size: 10px;
+        }
+      }
+
+      .cell-2 {
+        max-width: 30px;
+      }
+      .cell-4 {
+        max-width: 50px;
+        border-right: 1px solid #cccccc;
+      }
+      .cell-5 {
+        padding: 7px 1px 0px 1px;
+        max-width: 40px;
+        > div {
+          display: flex;
+          align-items: center;
+        }
+      }
+    }
+    .card-container-body {
+      border: 1px solid #ccc;
+    }
+  }
+  .as-box {
+    border: 1px solid #ccc;
+    padding: 0px 5px;
+    border-radius: 3px;
+    background-color: rgb(243, 241, 226);
+    font-size: 12px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+  }
+
+  .block-list {
+    &.row {
+      padding-top: 10px;
+    }
+  }
+}

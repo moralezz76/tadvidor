@@ -1,0 +1,41 @@
+input {
+  border: 1px solid #d1d1d1;
+  border-radius: 3px;
+  min-height: 32px;
+}
+
+form {
+  flex: 1;
+  flex-direction: column;
+
+  .form-group {
+    .is-value-render {
+      border-bottom: 1px solid #cccccc;
+      min-height: 25px;
+      min-width: 209px;
+    }
+
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    margin-bottom: 14px;
+
+    label {
+      margin-bottom: 2px;
+      &.required:after {
+        margin-left: 1px;
+        content: "*";
+        color: #ff0000;
+        font-size: 12px;
+      }
+    }
+
+    .hint-container {
+      line-height: 19px;
+      font-size: 10px;
+      color: grey;
+      font-style: italic;
+      position: relative;
+    }
+  }
+}

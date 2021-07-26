@@ -1,0 +1,38 @@
+.provider-network {
+  .pfx {
+    display: flex;
+
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 1px;
+    margin-top: -2px;
+    > div {
+      flex: 1;
+      padding: 1px 4px 0px;
+    }
+
+    .pfx-1 {
+      background-color: #efd186;
+    }
+  }
+
+  .select-my {
+    label {
+      padding: 0px 4px;
+      border: 1px solid #cccccc;
+      font-size: 12px;
+      border-radius: 3px;
+      margin-left: 4px;
+      margin-top: 4px;
+      font-weight: bold;
+      color: #5555ff !important;
+      background-color: #fff;
+      cursor: pointer;
+
+      &.selected {
+        color: #000 !important;
+        background-color: #f1ce74;
+      }
+    }
+  }
+}

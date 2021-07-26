@@ -1,0 +1,35 @@
+.loading-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 4000;
+
+  &__spinner {
+    width: 75px;
+    height: 75px;
+    margin: 0;
+    background: transparent;
+    border-top: 4px solid red;
+    border-right: 4px solid transparent;
+    border-radius: 50%;
+    -webkit-animation: 1s spin linear infinite;
+    animation: 1s spin linear infinite;
+    z-index: 6;
+  }
+
+  &__overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0.5;
+    background-color: gray;
+    z-index: 4;
+  }
+}
