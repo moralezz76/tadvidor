@@ -1,26 +1,26 @@
-@import "variables";
+@import 'variables';
 //@import "custom_bootstrap";
-@import "~bootstrap/scss/bootstrap.scss";
+@import '~bootstrap/scss/bootstrap.scss';
 //@import 'animations';
-@import "toastr.scss";
+@import 'toastr.scss';
 
-@import "~bootstrap/scss/functions";
-@import "~bootstrap/scss/variables";
-@import "~bootstrap/scss/mixins";
-@import "~bootstrap/scss/root";
-@import "~bootstrap/scss/reboot";
-@import "~bootstrap/scss/type";
+@import '~bootstrap/scss/functions';
+@import '~bootstrap/scss/variables';
+@import '~bootstrap/scss/mixins';
+@import '~bootstrap/scss/root';
+@import '~bootstrap/scss/reboot';
+@import '~bootstrap/scss/type';
 
-@import "~bootstrap/scss/forms";
-@import "~bootstrap/scss/buttons";
+@import '~bootstrap/scss/forms';
+@import '~bootstrap/scss/buttons';
 //@import '~bootstrap/scss/button-group';
-@import "~bootstrap/scss/input-group";
+@import '~bootstrap/scss/input-group';
 //@import '~bootstrap/scss/custom-forms';
 //@import '~bootstrap/scss/buttons';
-@import "~bootstrap/scss/utilities";
-@import "~bootstrap/scss/print";
-@import "~bootstrap/scss/modal";
-@import "~bootstrap/scss/input-group";
+@import '~bootstrap/scss/utilities';
+@import '~bootstrap/scss/print';
+@import '~bootstrap/scss/modal';
+@import '~bootstrap/scss/input-group';
 //@import "~bootstrap/scss/forms";
 
 /*@import '~bootstrap/scss/images';
@@ -55,12 +55,12 @@
 @import '~bootstrap/scss/utilities';
 @import '~bootstrap/scss/print';*/
 
-@import "fonts";
+@import 'fonts';
 
 html,
 body {
   height: 100vh;
-  font-family: $font-family-regular;
+  font-family: 'Inter', sans-serif;
   font-size: 13px;
 }
 
@@ -107,5 +107,30 @@ textarea {
   to {
     -webkit-transform: rotate(360deg);
     transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 991.98px) {
+  .float-at-right {
+    background-color: white;
+    padding: 0px;
+    position: absolute;
+    right: 0px;
+    overflow: hidden;
+    height: 100%;
+    transition: max-width 0.4s;
+    max-width: 0px;
+
+    > div {
+      padding: 12px;
+      overflow: hidden;
+      width: 340px;
+    }
+    &.expanded {
+      max-width: 340px;
+      border-left: 1px solid #999;
+      > div {
+      }
+    }
   }
 }

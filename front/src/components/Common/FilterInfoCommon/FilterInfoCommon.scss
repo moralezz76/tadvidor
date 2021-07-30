@@ -1,0 +1,38 @@
+.filter-info {
+  background-color: #eee;
+  flex: 1;
+  min-height: 64px;
+  margin-top: 1px;
+  padding: 0px 15px;
+  display: flex;
+
+  font-size: 10px;
+  color: #666;
+
+  .filter-main {
+    padding-top: 4px;
+  }
+  > div {
+    flex: 1;
+  }
+
+  .country-info {
+    display: flex;
+    align-items: center;
+    .country-name {
+      font-weight: bold;
+      display: inline-block;
+      font-size: 20px;
+      margin-left: 4px;
+      color: #2c84f3;
+    }
+
+    .country-flag {
+      display: inline-block;
+      svg {
+        font-size: 26px;
+        font-weight: bold;
+      }
+    }
+  }
+}

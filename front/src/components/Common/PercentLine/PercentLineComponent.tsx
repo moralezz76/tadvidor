@@ -9,7 +9,7 @@ const PercentLineComponent = (props: any) => {
 
   return (
     <div className="percent-line">
-      <div style={{ width: `${percent}%` }}></div>
+      <div style={{ maxWidth: `${percent}%` }}></div>
     </div>
   );
 };

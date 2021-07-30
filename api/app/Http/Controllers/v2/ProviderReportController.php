@@ -59,9 +59,9 @@ class ProviderReportController extends Controller
         return  response()->json([
             'status' => 200,
             'data' => [
-                'menu_markets' => [
+                /*'menu_markets' => [
                     'Global' => $this->menu_markets()
-                ],
+                ],*/
                 'profileData' => [],
                 'IPv4AsCustomers' => [
                     [1, 0, 0, 'Level 3 Communications, Inc.', '3356', 100],

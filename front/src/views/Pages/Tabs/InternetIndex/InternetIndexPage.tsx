@@ -9,10 +9,11 @@ import './InternetIndexPage.scss';
 import { bindActionCreators, Dispatch } from 'redux';
 import { callUrlServiceAction } from '../../../../bin/redux_session/actions';
 import { useHistory, useRouteMatch } from 'react-router-dom';
-import { buildPathWithParams } from '../../../../utils/Helpers';
+import { buildPathWithParams, CountryZones } from '../../../../utils/Helpers';
 import { t } from '../../../../config/i18n';
-import { PercentLine } from '../../../../components/Common';
+import { Asn, FilterInfo, Icon, PercentLine } from '../../../../components/Common';
 import routes from '../../../../config/routesAndViews';
+import classNames from 'classnames';
 
 const InternetIndexPage = (props: any) => {
   let match = useRouteMatch<any>();
@@ -25,9 +26,9 @@ const InternetIndexPage = (props: any) => {
     params: { menu },
   } = match;
 
-  const [viewByMarkets, setViewByMarkets] = useState<any>({});
   const [viewByRankings, setViewByRankings] = useState<any>({});
-  const [blocks, setBlocks] = useState<any>({});
+  const [blocks, setBlocks] = useState<any>([]);
+  const [marketToggled, setMarketToggled] = useState('');
 
   const {
     params: { country_code = 'global' },
@@ -37,10 +38,12 @@ const InternetIndexPage = (props: any) => {
     const {
       params: { country_code = 'global', find_by = 'markets' },
     } = match;
+
+    setAwaiting(true);
     callUrlService('internet_index', { find_by, country_code }, 'get', ({ data }: any) => {
       if (!data) return;
-      const { menu_markets, menu_rankings, blocks } = data;
-      setViewByMarkets(menu_markets);
+      const { menu_rankings, blocks } = data;
+
       setViewByRankings(menu_rankings);
       setBlocks(blocks);
       setAwaiting(false);
@@ -57,74 +60,72 @@ const InternetIndexPage = (props: any) => {
     history.push(pathname);
   };
 
-  const render: any = [
-    (v: any) => <b>{v}</b>,
-    (v: any) => {
-      if (v == 0) return '';
-      if (v > 0)
-        return (
-          <>
-            <FaLongArrowAltUp color="green" />
-            <b>{v}</b>
-          </>
-        );
-      return (
-        <>
-          <FaLongArrowAltDown color="red" />
-          <b>{-v}</b>
-        </>
-      );
-    },
-    (v: any) => {
-      if (v !== 0) return <AiFillStar className="yelow-star" />;
-      return <AiOutlineStar />;
-    },
-    null,
-    (v: any) => {
-      return <div className="as-box">{v}</div>;
-    },
-    (v: any) => <PercentLine percent={v} />,
-  ];
+  const onMarketToggle = () => {
+    setMarketToggled(marketToggled === '' ? 'expanded' : '');
+  };
 
+  const onPageClick = (e: any) => {
+    let { target } = e;
+    do {
+      const { className = '' } = target;
+      if (className.indexOf('toggled') !== -1) return false;
+      target = target.parentNode;
+    } while (target);
+    setMarketToggled('');
+  };
   return (
     <>
       {waiting && <Loading />}
-      <div className="internet-index">
+      <div className="internet-index" onClick={onPageClick}>
         <div className="col-md-12">
           <div className="row">
-            <div className="col-md-9">
+            <div className="col-lg-9 col-md-12">
               <ZoneView active="data">
-                <CardContainer
-                  title={t('titleGlobalIPV4')}
-                  id="data"
-                  className="form block-container"
-                >
-                  <BlockList data={blocks} render={render} className="col-6" />
+                <CardContainer id="data" className="block-container">
+                  <FilterInfo country_code={country_code}>
+                    <div className="filter-extra d-xl-none d-lg-none ">
+                      <button className="btn btn-primary toggled" onClick={onMarketToggle}>
+                        <Icon type="search" /> &nbsp;Filters Market...
+                      </button>
+                    </div>
+                  </FilterInfo>
+                  <BlockList data={blocks} className="col-6" />
                 </CardContainer>
               </ZoneView>
             </div>
-            <div className="col-md-3 menu-zone">
-              <div className="alert alert-primary" role="alert">
-                {t('textProviderReport')} <b>{country_code}</b>
+            <div className={classNames(marketToggled, 'col-lg-3 menu-zone float-at-right')}>
+              <div className="toggled">
+                <div className="text-right d-xl-none d-lg-none">
+                  <button
+                    className="btn btn-primary toggled "
+                    onClick={onMarketToggle}
+                    style={{ marginBottom: 8 }}
+                  >
+                    Hide Filters... <Icon type="hideR" />
+                  </button>
+                </div>
+                <div className="alert alert-primary" role="alert">
+                  {t('textProviderReport')} <b>{country_code}</b>
+                </div>
+                <CardContainer title={t('titleViewByMarkets')}>
+                  <MenuList
+                    list={CountryZones}
+                    onClick={(x: any) => handleMenuClick(x, 'markets')}
+                    asBlue={true}
+                    useTrans={false}
+                    selected={country_code.toUpperCase()}
+                    expanded={['Global']}
+                  />
+                </CardContainer>
+                <CardContainer title={t('titleViewByRankings')}>
+                  <MenuList
+                    list={viewByRankings}
+                    onClick={(x: any) => handleMenuClick(x, 'rankings')}
+                    asBlue={true}
+                    expanded={['AllRankings']}
+                  />
+                </CardContainer>
               </div>
-              <CardContainer title={t('titleViewByMarkets')} className="form">
-                <MenuList
-                  list={viewByMarkets}
-                  onClick={(x: any) => handleMenuClick(x, 'markets')}
-                  asBlue={true}
-                  useTrans={false}
-                  selected={country_code.toUpperCase()}
-                  expanded={['Global']}
-                />
-              </CardContainer>
-              <CardContainer title={t('titleViewByRankings')} className="form">
-                <MenuList
-                  list={viewByRankings}
-                  onClick={(x: any) => handleMenuClick(x, 'rankings')}
-                  asBlue={true}
-                  expanded={['AllRankings']}
-                />
-              </CardContainer>
             </div>
           </div>
         </div>

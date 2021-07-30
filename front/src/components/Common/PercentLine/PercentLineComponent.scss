@@ -1,8 +1,12 @@
 .percent-line {
-  border: 1px solid #6060a7;
-  height: 9px;
+  flex: 1;
+  background-color: #eee;
+  height: 12px;
+  border-radius: 5px;
+  display: flex;
   > div {
-    background-color: #6060a7;
-    height: 8px;
+    background-color: #bb6bd9;
+    border-radius: 5px;
+    flex: 1;
   }
 }

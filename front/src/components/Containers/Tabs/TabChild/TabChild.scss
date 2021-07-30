@@ -1,32 +1,26 @@
 .tab {
-    &-list {
-        &-item {
-            display: inline-block;
-            list-style: none;
-            padding: 5px 10px 3px;
-            background-color: #004781;
-            color: white;
-            box-shadow: 0px -1px 1px #666;
-            cursor: pointer;
-            font-weight: bolder;
-            border-radius: 10px 10px 0px 0px;
-            margin-right: 6px;
-            text-shadow: 1px 1px 1px black;
+  &-list {
+    &-item {
+      display: inline-block;
+      list-style: none;
+      padding: 5px 15px;
+      cursor: pointer;
 
-            &.disabled {
-                background-color: #aaaaaa;
-                color: #eeeeee;
-                text-shadow: 1px 1px #666666; 
-            }
-        }
+      margin-right: 6px;
+      font-size: 16px;
+      &.disabled {
+        color: #999999;
+      }
     }
+  }
 }
 
 .active {
-    color: #000000;
-    padding-bottom: 4px;
-    background-color: #f7f7f7;
-    text-shadow: 1px 1px 1px white;
-    border-right: 1px solid #cccccc;
-    border-left: 1px solid #cccccc;
+  border-bottom: 3px solid #666;
+  font-weight: bolder;
+}
+
+.at-right {
+  position: absolute;
+  right: 40px;
 }

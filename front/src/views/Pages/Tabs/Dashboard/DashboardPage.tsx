@@ -13,6 +13,7 @@ import { buildPathWithParams } from '../../../../utils/Helpers';
 import ZSearch from './Zones/ZSearch';
 import ZFavorites from './Zones/ZFavorites';
 import { tabsMenu } from '../TabsHelpers';
+import { Icon } from '../../../../components/Common';
 
 const Dashboard = (props: any) => {
   const { callUrlService, onAsnClick = () => {} } = props;
@@ -43,16 +44,7 @@ const Dashboard = (props: any) => {
     history.push(pathname);
   };
 
-  const menuTitles = {
-    Favorites: (
-      <>
-        {t('menuFavorites')} &nbsp;
-        <b>({asnFav.length || 0})</b>
-      </>
-    ),
-  };
-
-  const handleRowClick = ([id_asn]: any) => {
+  const handleRowClick = ([, , [id_asn]]: any) => {
     const to = buildPathWithParams(routes.PROVIDER.path, {
       ...routes.PROVIDER.defaultState,
       id_asn,
@@ -63,6 +55,17 @@ const Dashboard = (props: any) => {
 
   const { dashboardMenu } = tabsMenu;
 
+  const render: any = [
+    (v: any) => <b>{v}</b>,
+    (v: any) => <Icon type={v} className={v} />,
+    ([asn, name]: any) => (
+      <>
+        <div>{name.substr(asn.length)}</div>
+        <span className="asn-round">{asn}</span>
+      </>
+    ),
+  ];
+
   return (
     <>
       {waiting && <Loading />}
@@ -70,22 +73,26 @@ const Dashboard = (props: any) => {
         <div className="col-md-12">
           <div className="row">
             <div className="col-md-3">
-              <CardContainer className="form">
+              <CardContainer>
                 <MenuList
                   list={dashboardMenu}
                   onClick={handleMenuClick}
                   selected={menu}
-                  menuTitles={menuTitles}
                   expanded={['ProviderNetwork']}
                 />
               </CardContainer>
             </div>
-            <div className="col-md-5">
-              <ZoneView active={menu}>
-                <ZSearch onRowClick={handleRowClick} asnfav={asnFav} id="search" />
-                <ZFavorites onRowClick={handleRowClick} asnfav={asnFav} id="favorites" />
-              </ZoneView>
-            </div>
+
+            <ZoneView active={menu} className="col-md-9">
+              <div id="search" className="row">
+                <div className="col-md-6">
+                  <ZSearch onRowClick={handleRowClick} asnfav={asnFav} render={render} />
+                </div>
+                <div className="col-md-6 favorites">
+                  <ZFavorites onRowClick={handleRowClick} asnfav={asnFav} render={render} />
+                </div>
+              </div>
+            </ZoneView>
           </div>
         </div>
       </div>

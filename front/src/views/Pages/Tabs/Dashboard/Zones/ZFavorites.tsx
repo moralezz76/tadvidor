@@ -6,10 +6,17 @@ import { connect } from 'react-redux';
 import { callUrlServiceAction } from '../../../../../bin/redux_session/actions';
 import { IoMdHeartDislike } from 'react-icons/io';
 import { t } from '../../../../../config/i18n';
+import { useEffect } from 'react';
+import { Icon } from '../../../../../components/Common';
 
 const ZFavorites = (props: any) => {
-  const { callUrlService, onRowClick, asnfav } = props;
-  const [asnFav, setAsnfav] = useState(asnfav);
+  const { callUrlService, onRowClick, asnfav, render = (v: any) => v } = props;
+
+  const [asnFav, setAsnfav] = useState([]);
+
+  useEffect(() => {
+    setAsnfav(asnfav);
+  }, [asnfav]);
 
   const handleRemoveFavClick = (e: any, [asnfav]: any) => {
     e.stopPropagation();
@@ -24,10 +31,11 @@ const ZFavorites = (props: any) => {
         ...ret,
         [
           ...i,
-          <IoMdHeartDislike
+          <Icon
+            type="trash"
             onClick={(e: any) => handleRemoveFavClick(e, i)}
             title={t('titleRemoveFav')}
-            color="#EE5050"
+            fontSize="20px"
           />,
         ],
       ];
@@ -35,13 +43,12 @@ const ZFavorites = (props: any) => {
   };
 
   return (
-    <CardContainer title="Favorites" className="fav-asn form" id="favorites">
+    <CardContainer title="Favorites" className="fav-asn">
       <TableList
         onRowClick={onRowClick}
-        className="viewer"
-        list={addFavOptions(asnFav)}
-        title="Count"
-        value={asnFav.length}
+        list={addFavOptions(asnFav.map((i: any, n: number) => [`${n + 1}.`, 'fav', [i[0], i[1]]]))}
+        title={`Count: ${asnFav.length}`}
+        render={render}
         maxItems={10}
       />
     </CardContainer>

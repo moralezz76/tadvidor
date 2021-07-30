@@ -2,18 +2,18 @@ import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { RootState } from 'ReduxTypes';
 import { CardContainer, MenuList, ZoneView } from '../../../../components/Containers';
-
 import Loading from '../../Loading/Loading';
-import './ProviderNetworkPage.scss';
 import { bindActionCreators, Dispatch } from 'redux';
 import { callUrlServiceAction } from '../../../../bin/redux_session/actions';
 import { tabsMenu } from '../TabsHelpers';
 import { useHistory, useRouteMatch } from 'react-router-dom';
-import { buildPathWithParams } from '../../../../utils/Helpers';
+import { buildPathWithParams, CountryZones } from '../../../../utils/Helpers';
 import ZProfile from './Zones/ZProfile';
 import ZAsCustomer from './Zones/ZAsCustomer';
 import { t } from '../../../../config/i18n';
 import routes from '../../../../config/routesAndViews';
+import './ProviderNetworkPage.scss';
+import { fakeProfileData } from '../../../../utils/fakedata';
 
 const ProviderNetworkPage = (props: any) => {
   let match = useRouteMatch<any>();
@@ -22,7 +22,6 @@ const ProviderNetworkPage = (props: any) => {
   const { id_asn, callUrlService } = props;
   const [waiting, setAwaiting] = useState(true);
   const [IPv4AsCustomers, SetIPv4AsCustomers] = useState<any>([]);
-  const [viewByMarkets, setViewByMarkets] = useState<any>({});
 
   const [menu, setMenu] = useState<any>('');
   const [asName, setAsName] = useState<any>('');
@@ -42,12 +41,12 @@ const ProviderNetworkPage = (props: any) => {
     if (id_asn && menu && id_country)
       callUrlService('asn_info', { id_asn, menu, id_country }, 'get', ({ data }: any) => {
         if (data) {
-          const { profileData, IPv4AsCustomers, menu_markets } = data;
-          menu_markets && setViewByMarkets(menu_markets);
+          const { profileData, IPv4AsCustomers } = data;
           profileData && setData(profileData);
           IPv4AsCustomers && SetIPv4AsCustomers(IPv4AsCustomers);
           setAwaiting(false);
         }
+        setData(fakeProfileData);
       });
   }, [menu, id_country, id_asn]);
 
@@ -60,8 +59,8 @@ const ProviderNetworkPage = (props: any) => {
     history.push(pathname);
   };
 
-  const onRowClick = (item: string[]) => {
-    const [id_asn, asName] = item;
+  const onRowClick = (item: any) => {
+    const [, , [id_asn, asName]] = item;
     setAsName(asName);
     const to = buildPathWithParams(routes.PROVIDER.path, {
       ...routes.PROVIDER.defaultState,
@@ -88,7 +87,7 @@ const ProviderNetworkPage = (props: any) => {
         <div className="col-md-12">
           <div className="row">
             <div className="col-md-3">
-              <CardContainer className="form">
+              <CardContainer>
                 <MenuList
                   list={providerMenu}
                   onClick={handleMenuClick}
@@ -106,7 +105,7 @@ const ProviderNetworkPage = (props: any) => {
                   id="profile"
                 />
                 <ZAsCustomer
-                  asName={asName}
+                  profileData={profileData}
                   IPv4AsCustomers={IPv4AsCustomers}
                   id_asn={id_asn}
                   country={id_country}
@@ -118,9 +117,9 @@ const ProviderNetworkPage = (props: any) => {
               <div className="alert alert-primary" role="alert">
                 {t('textProviderReport')} <b>{id_country}</b>
               </div>
-              <CardContainer title={t('titleViewByMarkets')} className="form">
+              <CardContainer title={t('titleViewByMarkets')}>
                 <MenuList
-                  list={viewByMarkets}
+                  list={CountryZones}
                   onClick={handleMarketsClick}
                   asBlue={true}
                   useTrans={false}

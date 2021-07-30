@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { CardContainer, TableList } from '../../../../../components/Containers';
 import { FormFields } from '../../../../../components/Formik';
 import { RootState } from 'ReduxTypes';
@@ -8,12 +8,17 @@ import { callUrlServiceAction } from '../../../../../bin/redux_session/actions';
 import { RiHeartAddLine } from 'react-icons/ri';
 import { t } from '../../../../../config/i18n';
 import axios from 'axios';
+import { Icon } from '../../../../../components/Common';
 
 const ZSearch = (props: any) => {
-  const { callUrlService, onRowClick, asnfav } = props;
+  const { callUrlService, onRowClick, asnfav = [], render = (v: any) => v } = props;
   const [findText, setFindText] = useState('');
   const [result, setResult] = useState([]);
-  const [asnFav, setAsnfav] = useState(asnfav);
+  const [asnFav, setAsnfav] = useState([]);
+
+  useEffect(() => {
+    setAsnfav(asnfav);
+  }, [asnfav]);
 
   const handleFavClick = (e: any, id: string) => {
     e.stopPropagation();
@@ -23,20 +28,26 @@ const ZSearch = (props: any) => {
   };
 
   const asnOptions = (r: any) => {
-    return r.reduce((ret: [], i: string) => {
-      const findFav = asnFav.reduce((r: boolean, asn: string[]) => {
-        return r || i === asn[0];
+    return r.reduce((ret: [], i: string[], n: number) => {
+      const findFav = asnFav.reduce((r: boolean, arr: any) => {
+        const [fav] = arr;
+        console.log(fav, i[0]);
+        return r || fav === i[0];
       }, false);
 
+      console.log(findFav);
       return [
         ...ret,
         [
-          i,
+          <b>{n + 1}.</b>,
+          findFav ? 'fav' : 'heartL',
+          [i[0], i[1]],
           !findFav && (
-            <RiHeartAddLine
-              onClick={(e: any) => handleFavClick(e, i)}
+            <Icon
+              type="heartA"
+              onClick={(e: any) => handleFavClick(e, i[0])}
               title={t('titleAddFav')}
-              color="#00FF00"
+              size="20px"
             />
           ),
         ],
@@ -45,34 +56,42 @@ const ZSearch = (props: any) => {
   };
 
   return (
-    <CardContainer title="Find ASN" className="find-asn form" id="search">
-      <FormFields
-        formValues={async v => {
-          const { asnName } = v;
-          if (asnName && asnName !== findText) {
-            setFindText(asnName);
-            // cancel before request
-            const { cancelRequest } = window;
-            cancelRequest && cancelRequest();
+    <CardContainer title="Find ASN">
+      <div className="result-find">
+        <FormFields
+          formValues={async v => {
+            const { asnName } = v;
+            if (asnName && asnName !== findText) {
+              setFindText(asnName);
+              // cancel before request
+              //const { cancelRequest } = window;
+              //cancelRequest && cancelRequest();
 
-            await callUrlService('asn_names', { asnName }, 'get', ({ data }: any) => {
-              data && setResult(data);
-            });
-          } else if (!asnName && findText) {
-            setFindText('');
-            setResult([]);
-          }
-        }}
-        fields={{
-          asnName: {},
-        }}
-      />
+              await callUrlService(
+                'asn_names',
+                { asnName },
+                'get',
+                ({ data: { asnList } }: any) => {
+                  asnList && setResult(asnList);
+                }
+              );
+            } else if (!asnName && findText) {
+              setFindText('');
+              setResult([]);
+            }
+          }}
+          fields={{
+            asnName: {},
+          }}
+        />
+      </div>
       <div className="result-div">
         <TableList
           onRowClick={onRowClick}
           className="result"
           title="Result"
           list={asnOptions(result)}
+          render={render}
           emptyText={t('textNoResults')}
           maxItems={10}
         />

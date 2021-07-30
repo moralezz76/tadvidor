@@ -1,6 +1,7 @@
 import React, { ReactNode } from 'react';
 import classNames from 'classnames';
 import './TabChild.scss';
+import { Icon } from '../../../Common';
 
 interface ITabChildProps {
   title: string;
@@ -8,12 +9,13 @@ interface ITabChildProps {
   activeTab?: number;
   index?: number;
   disabled?: boolean;
-  icon?: React.ReactElement;
+  icon?: string;
   children?: ReactNode;
+  className?: string;
 }
 
 const TabChild = (props: ITabChildProps) => {
-  const { disabled, icon, index, activeTab, title, handleClickTabItem } = props;
+  const { disabled, icon, index, activeTab, title, handleClickTabItem, className } = props;
 
   const handleClick = () => {
     !disabled && handleClickTabItem && handleClickTabItem(index || 0);
@@ -21,10 +23,14 @@ const TabChild = (props: ITabChildProps) => {
 
   return (
     <li
-      className={classNames('tab-list-item', { active: activeTab === index, disabled })}
+      className={classNames(className, 'tab-list-item', { active: activeTab === index, disabled })}
       onClick={handleClick}
     >
-      {icon}&nbsp;
+      {icon && (
+        <>
+          <Icon type={icon} size="22px" /> &nbsp;
+        </>
+      )}
       {title}
     </li>
   );

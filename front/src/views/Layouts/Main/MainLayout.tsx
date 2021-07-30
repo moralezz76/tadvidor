@@ -12,13 +12,17 @@ import { ReactComponent as KentikLogo } from '../../../../src/assets/img/kentik.
 import classNames from 'classnames';
 import { Tabs } from '../../../components/Containers';
 import routes from '../../../config/routesAndViews';
-import { ProviderNetwork, InternetIndex, Dashboard, ProviderReportPage } from '../..';
+import { ProviderNetwork, InternetIndex, Dashboard } from '../..';
 
 import { IGenericObject } from '../../../config/interfaces';
 
 import { StorageHelper } from '../../../utils/StorageHelper';
 import { buildPathWithParams } from '../../../utils/Helpers';
 import { BiPulse } from 'react-icons/bi';
+import { AiOutlineDashboard } from 'react-icons/ai';
+import { BiPlanet } from 'react-icons/bi';
+import { GrAction } from 'react-icons/gr';
+import { Icon } from '../../../components/Common';
 
 interface IMainLayoutProps {
   callUrlService: typeof callUrlServiceAction;
@@ -67,7 +71,7 @@ const MainLayout = (props: IMainLayoutProps) => {
     });
   };
 
-  const tabIndexRoutes: any = [[routes.DASHBOARD], [routes.INTERNET_INDEX], [routes.PROVIDER]];
+  const tabIndexRoutes: any = [[routes.INTERNET_INDEX], [routes.PROVIDER], [routes.DASHBOARD]];
   const [activeTab, setActiveTab] = useState(0);
 
   /**/
@@ -126,21 +130,25 @@ const MainLayout = (props: IMainLayoutProps) => {
             </div>
           </div>
           <div className="core">
-            <BiPulse color="#E05420" size="18" /> &nbsp;
-            <b>CORE</b> &gt; <span>Transit Advisor</span>
+            <div style={{ fontSize: 10 }}>SERVICE PROVIDER</div>
+            <h2>
+              <b>Transit Advisor</b>
+            </h2>
           </div>
         </div>
-        <Tabs name="tabmenu" activeIndex={activeTab} onClickTabItem={handleClickOnTab}>
-          <Tabs.Tab title="Dashboard">
-            <Dashboard onAsnClick={handleAsn} />
-          </Tabs.Tab>
-          <Tabs.Tab title="Internet index">
-            <InternetIndex />
-          </Tabs.Tab>
-          <Tabs.Tab title="Provider Network" disabled={!currentAsn}>
-            <ProviderNetwork id_asn={currentAsn} />
-          </Tabs.Tab>
-        </Tabs>
+        <div className="section-body">
+          <Tabs name="tabmenu" activeIndex={activeTab} onClickTabItem={handleClickOnTab}>
+            <Tabs.Tab title="Internet Index" icon="graph">
+              <InternetIndex />
+            </Tabs.Tab>
+            <Tabs.Tab title="Provider Network" icon="provider" disabled={!currentAsn}>
+              <ProviderNetwork id_asn={currentAsn} />
+            </Tabs.Tab>
+            <Tabs.Tab title="Search..." icon="search" className="at-right">
+              <Dashboard onAsnClick={handleAsn} />
+            </Tabs.Tab>
+          </Tabs>
+        </div>
       </div>
     </div>
   );

@@ -70,9 +70,9 @@ class InternetIndexController extends Controller
         return  response()->json([
             'status' => 200,
             'data' => [
-                'menu_markets' => [
+                /*'menu_markets' => [
                     'Global' => $this->menu_markets()
-                ],
+                ],*/
                 'menu_rankings' => [
                     'AllRankings' => [
                         "CustomerBase" => [
@@ -85,8 +85,8 @@ class InternetIndexController extends Controller
                     ]
                 ],
                 'blocks' => [
-                    'IPv4CustomerBase' => [
-                        [1, 0, 0, 'Level 3 Communications, Inc.', '3356', 100],
+                    'CustomerBase' => [
+                        [1, 0, -1, 'Level 3 Communications, Inc.', '3356', 100],
                         [2, 0, 0, 'Global Crossing', '3549', 90],
                         [3, 1, 0, 'NTT Communications', '2914', 80],
                         [4, 0, 1, 'Sprint', '1239', 70],
@@ -96,16 +96,41 @@ class InternetIndexController extends Controller
                         [8, 0, 0, 'Tata Communications', '6453', 20],
                         [9, 0, 0, 'MCI Services', '701', 20],
                         [10, 0, 0, 'TELECON ITALIA', '6762', 10],
+                        [11, 0, 0, 'TELECON ITALIA 2', '26762', 10],
                     ],
-                    'IPv4CustomerBase1' => [
+                    'CustomerBaseType' => [
                         [1, 0, 0, 'Level 3 Communications, Inc.', '3356', 100],
-                        [2, 0, 0, 'Global Crossing', '3549', 90],
+                        [2, 0, -1, 'Global Crossing', '3549', 90],
                         [3, 1, 0, 'NTT Communications', '2914', 80],
                         [4, 0, 1, 'Sprint', '1239', 70],
                         [5, 0, 0, 'TeliaNet Global Network', '1299', 70],
                         [6, -1, 0, 'Tinet SpA', '3257', 50],
                         [7, 0, 0, 'Cogent Communications', '174', 30],
-                        [8, 0, 0, 'Tata Communications', '6453', 20],
+                        [8, 0, -1, 'Tata Communications', '6453', 20],
+                        [9, 0, 0, 'MCI Services', '701', 20],
+                        [10, 0, 0, 'TELECON ITALIA', '6762', 10],
+                    ],
+                    'CustomerGrowth' => [
+                        [1, 0, 0, 'Level 3 Communications, Inc.', '3356', 100],
+                        [2, 0, -1, 'Global Crossing', '3549', 90],
+                        [3, 1, 0, 'NTT Communications', '2914', 80],
+                        [4, 0, 1, 'Sprint', '1239', 70],
+                        [5, 0, 0, 'TeliaNet Global Network', '1299', 70],
+                        [6, -1, 0, 'Tinet SpA', '3257', 50],
+                        [7, 0, 0, 'Cogent Communications', '174', 30],
+                        [8, 0, -1, 'Tata Communications', '6453', 20],
+                        [9, 0, 0, 'MCI Services', '701', 20],
+                        [10, 0, 0, 'TELECON ITALIA', '6762', 10],
+                    ],
+                    'PeeringBase' => [
+                        [1, 0, 0, 'Level 3 Communications, Inc.', '3356', 100],
+                        [2, 0, -1, 'Global Crossing', '3549', 90],
+                        [3, 1, 0, 'NTT Communications', '2914', 80],
+                        [4, 0, 1, 'Sprint', '1239', 70],
+                        [5, 0, 0, 'TeliaNet Global Network', '1299', 70],
+                        [6, -1, 0, 'Tinet SpA', '3257', 50],
+                        [7, 0, 0, 'Cogent Communications', '174', 30],
+                        [8, 0, -1, 'Tata Communications', '6453', 20],
                         [9, 0, 0, 'MCI Services', '701', 20],
                         [10, 0, 0, 'TELECON ITALIA', '6762', 10],
                     ]

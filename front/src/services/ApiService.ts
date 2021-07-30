@@ -34,9 +34,8 @@ export class ApiService {
     this.instance.interceptors.response.use(
       (response: any) => response,
       (error: AxiosError): ApiResponse<ApiError> => {
-        const {
-          response = { status: 500, data: { code: 0, description: '', status: 500 } },
-        } = error;
+        const { response = { status: 500, data: { code: 0, description: '', status: 500 } } } =
+          error;
         const { status, data } = response;
         return { data: { ...data, status, hasError: true } };
       }
@@ -106,6 +105,7 @@ export class ApiService {
       join = url.includes('?') ? '&' : '?';
     }
 
+    console.log(url + join + qs);
     if (responseWithHeaders) {
       return this.resolveResponseWithHeaders(this.instance.get(url + join + qs, options));
     } else {

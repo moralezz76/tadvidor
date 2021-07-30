@@ -1,0 +1,28 @@
+.flag-common {
+  display: flex;
+  align-items: center;
+
+  img {
+    width: 56px;
+  }
+  .icon-safe {
+    font-size: 20px;
+    margin: 0px 4px;
+    color: #2c84f3;
+  }
+
+  .codepath {
+    display: inline-block;
+    &.last {
+      display: block;
+      font-size: 18px;
+      font-weight: bold;
+      margin-top: -4px;
+    }
+  }
+
+  .country-info {
+    display: inline-block;
+    color: #2c84f3;
+  }
+}

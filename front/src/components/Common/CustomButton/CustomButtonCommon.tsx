@@ -36,7 +36,6 @@ const CustomButtonCommon = (props: any) => {
   };
 
   const handleBlur = () => {
-    console.log('lost');
     if (!clickOnMe)
       setTimeout(() => {
         setToggled(false);

@@ -5,7 +5,6 @@ import AccessDeniedPage from './Pages/AccessDeniedPage/AccessDeniedPage';
 import Dashboard from './Pages/Tabs/Dashboard/DashboardPage';
 import ProviderNetwork from './Pages/Tabs/ProviderNetwork/ProviderNetworkPage';
 import InternetIndex from './Pages/Tabs/InternetIndex/InternetIndexPage';
-import ProviderReportPage from './Pages/Tabs/ProviderReport/ProviderReportPage';
 
 export {
   LoginPage,
@@ -15,5 +14,4 @@ export {
   Dashboard,
   ProviderNetwork,
   InternetIndex,
-  ProviderReportPage,
 };

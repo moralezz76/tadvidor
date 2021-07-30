@@ -38,7 +38,7 @@ const endpoints: IEndpoint = {
   asn_names: {
     get: {
       url: '/asn/list',
-      errorMessage: false,
+      // errorMessage: false,
     },
   },
 

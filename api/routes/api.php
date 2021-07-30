@@ -85,17 +85,17 @@ Route::group([
 Route::group([
     'prefix' => 'v2/asn'
 ], function ($router) {
-    Route::get('list', 'AsnController@index');
-    Route::get('data', 'AsnfavController@index');
-    Route::post('addfav', 'AsnfavController@store');
-    Route::delete('removefav/{asnfav}', 'AsnfavController@destroy');
+    Route::get('list', 'v2\AsnController@index');
+    Route::get('data', 'v2\AsnfavController@index');
+    Route::post('addfav', 'v2\AsnfavController@store');
+    Route::delete('removefav/{asnfav}', 'v2\AsnfavController@destroy');
 });
 
 Route::group([
     'prefix' => 'v2/provider'
 ], function ($router) {
-    Route::get('/{id_asn}/profile/{id_country}', 'AsnController@profile');
-    Route::get('/{id_asn}/as_customers/{id_country}', 'AsnController@as_customers');
+    Route::get('/{id_asn}/profile/{id_country}', 'v2\AsnController@profile');
+    Route::get('/{id_asn}/as_customers/{id_country}', 'v2\AsnController@as_customers');
 });
 
 Route::group([

@@ -1,21 +1,4 @@
 .provider-network {
-  .pfx {
-    display: flex;
-
-    background-color: white;
-    border: 1px solid #ccc;
-    border-radius: 1px;
-    margin-top: -2px;
-    > div {
-      flex: 1;
-      padding: 1px 4px 0px;
-    }
-
-    .pfx-1 {
-      background-color: #efd186;
-    }
-  }
-
   .select-my {
     label {
       padding: 0px 4px;
@@ -33,6 +16,30 @@
         color: #000 !important;
         background-color: #f1ce74;
       }
+    }
+  }
+
+  .list {
+    margin-bottom: 30px;
+  }
+
+  .list {
+    .cell-0,
+    .cell-1 {
+      max-width: 34px !important;
+      svg {
+        font-size: 18px;
+      }
+    }
+    .cell-2 {
+      display: inline-block !important;
+      color: #2c84f3;
+      flex: 5 !important;
+    }
+    .cell-3 {
+      max-width: 100px !important;
+      display: inline-block;
+      padding-top: 17px;
     }
   }
 }

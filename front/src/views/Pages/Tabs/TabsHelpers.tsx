@@ -2,7 +2,7 @@ export const tabsMenu: any = {
   dashboardMenu: {
     ProviderNetwork: {
       FindAsn: 'search',
-      Favorites: 'favorites',
+
       /*Reserved1: {
         Reserved2: 'reserved2',
         Reserved3: 'reserved3',

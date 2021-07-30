@@ -8,38 +8,22 @@
   .block-list {
     .table-block {
       .cell-0 {
-        max-width: 22px;
-        border-right: 1px solid #cccccc;
         b {
-          color: rgb(62, 62, 212);
+          font-size: 16px;
         }
       }
-      .cell-1 {
-        border-right: 1px solid #cccccc;
+      .cell-0,
+      .cell-1,
+      .cell-3 {
         max-width: 34px;
-        b {
-          font-size: 10px;
-        }
       }
 
       .cell-2 {
-        max-width: 30px;
+        display: inline-block !important;
       }
       .cell-4 {
-        max-width: 50px;
-        border-right: 1px solid #cccccc;
+        max-width: 100px;
       }
-      .cell-5 {
-        padding: 7px 1px 0px 1px;
-        max-width: 40px;
-        > div {
-          display: flex;
-          align-items: center;
-        }
-      }
-    }
-    .card-container-body {
-      border: 1px solid #ccc;
     }
   }
   .as-box {
@@ -53,9 +37,40 @@
     justify-content: center;
   }
 
-  .block-list {
-    &.row {
-      padding-top: 10px;
+  .filter-extra {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+
+  .list {
+    .cell-0,
+    .cell-1 {
+      max-width: 34px !important;
+      font-size: 18px;
+      font-weight: bold;
+      svg {
+        font-size: 22px !important;
+      }
+    }
+    .cell-2 {
+      display: inline-block !important;
+      color: #2c84f3;
+      flex: 5 !important;
+    }
+
+    .cell-3 {
+      max-width: 48px !important;
+    }
+
+    .cell-4 {
+      min-width: 120px !important;
+    }
+    .cell-1 {
+      svg {
+        color: #2c84f3;
+        font-size: 18px;
+      }
     }
   }
 }

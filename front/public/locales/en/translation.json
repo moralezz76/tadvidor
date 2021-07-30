@@ -36,12 +36,15 @@
   "titleGlobalIPV4": "Global IPv4 Internet Index Ratings",
   "titleIPV4AsCustomers": "IPV4 AS Customers",
   "titleServiceType": "Service Type",
+  "titleCustomerBase": "Customer Base",
+  "titleCustomerBaseType": "Customer base type",
+  "titleCustomerGrowth": "Customer growth",
+  "titlePeeringBase": "Peering base",
 
   "buttonYesLogoutNow": "Yes! Logout Now...",
 
   "titleViewByMarkets": "View by Markets",
   "titleViewByRankings": "View by Rankings",
-  "titleIPv4CustomerBase": "IPv4 Customer Base",
 
   "menuAllRankings": "All Rankings",
   "menuCustomerBase": "Customer Base",

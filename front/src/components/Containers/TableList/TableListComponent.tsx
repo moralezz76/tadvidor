@@ -29,14 +29,11 @@ const TableListComponent = (props: any) => {
 
   return (
     <div className={classNames('table-list', className)}>
-      <div className="title">
-        {title && <b>{title}: &nbsp; &nbsp; </b>}
-        {value}
-      </div>
+      {title && <div className="title"> {title} </div>}
       <div className="list">
         {emptyText && list.length === 0 && (
           <div className="list-row">
-            <div className={`cell cell-0`}>
+            <div className={`cell`}>
               <span className="empty-text">{emptyText}</span>
             </div>
           </div>
