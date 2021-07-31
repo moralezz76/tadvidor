@@ -22,25 +22,17 @@ const InternetIndexPage = (props: any) => {
   const { id_asn, callUrlService } = props;
   const [waiting, setAwaiting] = useState(true);
 
-  const {
-    params: { menu },
-  } = match;
-
   const [viewByRankings, setViewByRankings] = useState<any>({});
   const [blocks, setBlocks] = useState<any>([]);
   const [marketToggled, setMarketToggled] = useState('');
 
   const {
-    params: { country_code = 'global' },
+    params: { filter_value = 'global', find_by = 'markets' },
   } = match;
 
   useEffect(() => {
-    const {
-      params: { country_code = 'global', find_by = 'markets' },
-    } = match;
-
     setAwaiting(true);
-    callUrlService('internet_index', { find_by, country_code }, 'get', ({ data }: any) => {
+    callUrlService('internet_index', { find_by, filter_value }, 'get', ({ data }: any) => {
       if (!data) return;
       const { menu_rankings, blocks } = data;
 
@@ -50,11 +42,11 @@ const InternetIndexPage = (props: any) => {
     });
   }, [match]);
 
-  const handleMenuClick = (country_code: any, find_by: any) => {
+  const handleMenuClick = (filter_value: any, find_by: any) => {
     const { path, defaultState } = routes.INTERNET_INDEX;
     const pathname = buildPathWithParams(path, {
       find_by,
-      country_code,
+      filter_value,
       ...defaultState,
     });
     history.push(pathname);
@@ -68,11 +60,12 @@ const InternetIndexPage = (props: any) => {
     let { target } = e;
     do {
       const { className = '' } = target;
-      if (className.indexOf('toggled') !== -1) return false;
+      if (className && className.indexOf('toggled') !== -1) return false;
       target = target.parentNode;
     } while (target);
     setMarketToggled('');
   };
+
   return (
     <>
       {waiting && <Loading />}
@@ -82,14 +75,14 @@ const InternetIndexPage = (props: any) => {
             <div className="col-lg-9 col-md-12">
               <ZoneView active="data">
                 <CardContainer id="data" className="block-container">
-                  <FilterInfo country_code={country_code}>
+                  <FilterInfo filter_value={filter_value} find_by={find_by}>
                     <div className="filter-extra d-xl-none d-lg-none ">
                       <button className="btn btn-primary toggled" onClick={onMarketToggle}>
                         <Icon type="search" /> &nbsp;Filters Market...
                       </button>
                     </div>
                   </FilterInfo>
-                  <BlockList data={blocks} className="col-6" />
+                  <BlockList data={blocks} className="col-md-6 col-sm-12" />
                 </CardContainer>
               </ZoneView>
             </div>
@@ -105,7 +98,7 @@ const InternetIndexPage = (props: any) => {
                   </button>
                 </div>
                 <div className="alert alert-primary" role="alert">
-                  {t('textProviderReport')} <b>{country_code}</b>
+                  {t('textProviderReport')} <b>{filter_value}</b>
                 </div>
                 <CardContainer title={t('titleViewByMarkets')}>
                   <MenuList
@@ -113,7 +106,7 @@ const InternetIndexPage = (props: any) => {
                     onClick={(x: any) => handleMenuClick(x, 'markets')}
                     asBlue={true}
                     useTrans={false}
-                    selected={country_code.toUpperCase()}
+                    selected={filter_value.toUpperCase()}
                     expanded={['Global']}
                   />
                 </CardContainer>

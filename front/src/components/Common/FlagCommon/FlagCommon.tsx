@@ -1,25 +1,37 @@
 import classNames from 'classnames';
+import _ from 'lodash';
 import React from 'react';
 import { Icon } from '..';
-import { countryCodePath } from '../../../utils/Helpers';
+import { t } from '../../../config/i18n';
+import { getCodePath } from '../../../utils/Helpers';
 import './FlagCommon.scss';
 
 const FlagCommon = (props: any) => {
-  const { countryCode } = props;
+  const { filterValue, withFlag, source, findBy } = props;
 
-  const country_code_path = countryCodePath(countryCode);
+  const codePath = filterValue === 'global' ? ['Global'] : getCodePath(source, filterValue);
+
+  codePath.unshift(`FilterBy${_.upperFirst(findBy)}`);
 
   return (
     <div className="flag-common">
-      <img src={`/svg/countries/${countryCode}.svg`} alt="Country"></img>
-      <Icon className="icon-safe" type="safe" />
+      {withFlag ? (
+        <img src={`/svg/countries/${filterValue}.svg`} alt="Country"></img>
+      ) : (
+        <>
+          <span className="filter-icon">
+            <Icon type={filterValue} />
+          </span>
+        </>
+      )}
+      {withFlag && <Icon className="icon-safe" type="safe" />}
       <div className="country-info">
-        {country_code_path.map((i: string, n: number) => {
-          const separ = n < country_code_path.length - 2 ? <Icon type="caret" /> : null;
-          const cn = n === country_code_path.length - 1 ? 'last' : 'zone';
+        {codePath.map((i: string, n: number) => {
+          const separ = n < codePath.length - 2 ? <Icon type="caret" /> : null;
+          const cn = n === codePath.length - 1 ? 'last' : 'zone';
           return (
             <div className={classNames(cn, 'codepath')}>
-              {i} {separ}&nbsp;
+              {t(`text${i}`, i)} {separ}&nbsp;
             </div>
           );
         })}

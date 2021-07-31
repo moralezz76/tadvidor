@@ -25,4 +25,61 @@
       background-color: white;
     }
   }
+  .sm-list {
+    border-bottom: 1px solid #eee;
+    padding-bottom: 6px;
+    .list-icon {
+      border: 2px solid #777;
+      display: inline-block;
+      margin-left: 16px;
+      border-radius: 4px;
+      padding-top: 2px;
+      cursor: pointer;
+    }
+  }
+}
+
+@media (max-width: 767.98px) {
+  .tabs {
+    .tab {
+      &-menu {
+        background-color: white;
+        position: absolute;
+        width: 100%;
+        overflow: hidden;
+        max-height: 0px;
+        transition: max-height 0.4s;
+        ol {
+          padding-inline-start: 5px !important;
+        }
+        &.expanded {
+          max-height: 100vh;
+        }
+        box-shadow: 0px 2px 2px #cccccc;
+      }
+      &-list {
+        position: relative;
+        z-index: 300;
+        background-color: white;
+        max-height: inherit;
+        border-bottom: 0px;
+        &-item {
+          display: list-item;
+          min-height: 50px;
+          display: flex;
+          align-items: center;
+          border-bottom: 1px solid #eee;
+          &.active {
+            border-bottom: 1px solid #eee;
+            font-weight: bolder;
+          }
+        }
+      }
+    }
+
+    .at-right {
+      position: relative;
+      right: inherit;
+    }
+  }
 }

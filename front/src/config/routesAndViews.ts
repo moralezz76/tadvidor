@@ -47,11 +47,13 @@ const routes: IRoutes = {
   },
 
   INTERNET_INDEX: {
-    path: '/internet/:find_by/:country_code',
+    path: '/internet/:find_by/:filter_value',
     permission: auth_user,
     view: MainLayout,
     defaultState: {
       menu: 'index',
+      find_by: 'markets',
+      filter_value: 'global',
     },
   },
 

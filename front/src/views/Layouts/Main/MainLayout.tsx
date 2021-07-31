@@ -13,16 +13,9 @@ import classNames from 'classnames';
 import { Tabs } from '../../../components/Containers';
 import routes from '../../../config/routesAndViews';
 import { ProviderNetwork, InternetIndex, Dashboard } from '../..';
-
 import { IGenericObject } from '../../../config/interfaces';
-
 import { StorageHelper } from '../../../utils/StorageHelper';
 import { buildPathWithParams } from '../../../utils/Helpers';
-import { BiPulse } from 'react-icons/bi';
-import { AiOutlineDashboard } from 'react-icons/ai';
-import { BiPlanet } from 'react-icons/bi';
-import { GrAction } from 'react-icons/gr';
-import { Icon } from '../../../components/Common';
 
 interface IMainLayoutProps {
   callUrlService: typeof callUrlServiceAction;
@@ -92,13 +85,13 @@ const MainLayout = (props: IMainLayoutProps) => {
 
   const handleClickOnTab = (i: number) => {
     const {
-      params: { country_code = 'global', find_by = 'markets' },
+      params: { filter_value = 'global', find_by = 'markets' },
     } = match;
 
     const route = buildPathWithParams(tabIndexRoutes[i][0].path, {
       ...tabIndexRoutes[i][0].defaultState,
       id_asn: currentAsn,
-      country_code,
+      filter_value,
       find_by,
     });
     history.push(route);

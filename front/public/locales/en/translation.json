@@ -27,6 +27,12 @@
   "textProviderReport": "Research a specific provider, explore market presence, network, customer relationshops, and more. Country code selected: ",
   "textFindByCountry": "Find by Country",
   "textNow": "Now",
+  "textFilterByRankings": "Filter by ranking",
+  "textFilterByMarkets": "Filter by markets",
+  "textAllRankings": "All rankings",
+  "textPeeringBase": "Peering base",
+  "textCustomerGrowth": "Customer growth",
+  "textCustomerBase": "Customer base",
 
   "successAddFav": "Asn added to favorites!",
   "successLogin": "Login success!",

@@ -69,10 +69,9 @@ const App = (props: appProps) => {
                   path={path}
                   render={() => {
                     if (userLogued && (path === loginPath || path === homePath)) {
-                      const pathname = buildPathWithParams(
-                        routesAndViews.DASHBOARD.path,
-                        routesAndViews.DASHBOARD.defaultState
-                      );
+                      const startAppOn = routesAndViews.INTERNET_INDEX;
+                      const { path, defaultState } = startAppOn;
+                      const pathname = buildPathWithParams(path, defaultState);
                       return (
                         <Redirect
                           to={{

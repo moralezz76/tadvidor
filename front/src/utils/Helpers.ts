@@ -93,9 +93,10 @@ export const C = {
 
 export const IsDev: boolean = !process.env.NODE_ENV || process.env.NODE_ENV === 'development';
 
-export const countryCodePath = (country_code: string) => {
-  const ret = findCountryCode(CountryZones, country_code, []);
-  //remoce '' & last (code)
+export const getCodePath = (source: any, find_str: string) => {
+  const ret = findCountryCode(source, find_str, []);
+
+  //remove '' & last (code)
   return ret.filter((i: any, n: number) => i !== '' && n !== ret.length - 1);
 };
 
@@ -105,13 +106,14 @@ const findCountryCode = (obj: any, code: string, ret: string[]) => {
   Object.keys(obj).forEach((key: any) => {
     const v = obj[key];
     if (typeof v === 'string') {
-      if (code.toUpperCase() === v) {
+      console.log(v, code);
+      if (code.toLowerCase() === v.toLowerCase()) {
         find = [key, v];
         return false;
       }
     } else {
       const nx = findCountryCode(v, code, [...ret, key]);
-      if (nx) {
+      if (nx.length > 0) {
         _ret = nx;
         return false;
       }
@@ -120,7 +122,7 @@ const findCountryCode = (obj: any, code: string, ret: string[]) => {
 
   if (_ret.length) return _ret;
   if (find) return [...ret, ...find];
-  return '';
+  return [];
 };
 
 export const CountryZones = {
@@ -413,5 +415,17 @@ export const CountryZones = {
         Samoa: 'WS',
       },
     },
+  },
+};
+
+export const MenuRankings = {
+  AllRankings: {
+    CustomerBase: {
+      Retail: 'retail',
+      Wholesale: 'wholesale',
+      Backbone: 'backbone',
+    },
+    CustomerGrowth: 'customer_growth',
+    PeeringBase: 'peering_base',
   },
 };

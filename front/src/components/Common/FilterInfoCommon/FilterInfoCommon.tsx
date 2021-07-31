@@ -1,9 +1,16 @@
 import React from 'react';
 import { Flag, Icon } from '..';
+import { CountryZones, MenuRankings } from '../../../utils/Helpers';
 import './FilterInfoCommon.scss';
 
 const FilterInfoCommon = (props: any) => {
-  const { children, country_code } = props;
+  const { children, filter_value, find_by } = props;
+
+  const sources: any = {
+    markets: CountryZones,
+    rankings: MenuRankings,
+  };
+
   return (
     <div className="filter-info">
       <div className="filter-main">
@@ -11,18 +18,12 @@ const FilterInfoCommon = (props: any) => {
           <b>MARKET FILTER</b>
         </div>
         <div className="country-info">
-          {country_code !== 'global' ? (
-            <>
-              <Flag countryCode={country_code} />
-            </>
-          ) : (
-            <>
-              <span className="country-flag">
-                <Icon type="global" />
-              </span>
-              <div className="country-name">Global</div>
-            </>
-          )}
+          <Flag
+            source={sources[find_by]}
+            withFlag={filter_value !== 'global' && find_by === 'markets'}
+            filterValue={filter_value}
+            findBy={find_by}
+          />
         </div>
       </div>
       {children}

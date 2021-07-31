@@ -10,14 +10,18 @@ import {
   BsSearch,
   BsCaretUpFill,
   BsCaretDownFill,
+  BsList,
+  BsEye,
 } from 'react-icons/bs';
 import { RiHeartFill, RiHeartAddLine, RiHeartLine } from 'react-icons/ri';
-import { VscGraph, VscGlobe } from 'react-icons/vsc';
+import { VscGraph } from 'react-icons/vsc';
 import { BiBuildings } from 'react-icons/bi';
-import { IoMdGlobe } from 'react-icons/io';
-import { AiOutlineGlobal, AiFillSafetyCertificate } from 'react-icons/ai';
-import { FaAngleDoubleRight } from 'react-icons/fa';
+import { AiOutlineGlobal, AiFillSafetyCertificate, AiOutlineShoppingCart } from 'react-icons/ai';
+import { FaAngleDoubleRight, FaXRay } from 'react-icons/fa';
 import { RiShieldCheckFill, RiShieldCheckLine } from 'react-icons/ri';
+import { HiOutlineShoppingCart } from 'react-icons/hi';
+import { MdAddShoppingCart } from 'react-icons/md';
+import { GrGroup } from 'react-icons/gr';
 
 import './IconCommon.scss';
 
@@ -44,6 +48,12 @@ const IconCommon = (props: any) => {
     arrowdown: <BsCaretDownFill {...rest} />,
     shield: <RiShieldCheckFill {...rest} />,
     shieldL: <RiShieldCheckLine {...rest} />,
+    list: <BsList {...rest} />,
+    retail: <HiOutlineShoppingCart {...rest} />,
+    wholesale: <MdAddShoppingCart {...rest} />,
+    customer_growth: <GrGroup {...rest} />,
+    peering_base: <BsEye {...rest} />,
+    backbone: <FaXRay {...FaXRay} />,
   };
 
   return refs[type] || null;
