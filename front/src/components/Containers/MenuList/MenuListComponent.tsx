@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import classNames from 'classnames';
 import './MenuListComponent.scss';
 import { t } from '../../../config/i18n';
+import { Icon } from '../../Common';
+import MenuLiner from './MenuLinerCommon/MenuLinerCommon';
 
 const ListItems = (props: any) => {
   const {
@@ -16,6 +18,7 @@ const ListItems = (props: any) => {
     expanded = [],
     onToggled,
     findText = '',
+    className,
   } = props;
 
   const handleClick = (e: string, i: any, toggle = false) => {
@@ -25,9 +28,11 @@ const ListItems = (props: any) => {
 
   return (
     <>
-      {Object.keys(items).map((i: any) => {
+      {Object.keys(items).map((i: any, idx: number) => {
         const e = items[i];
         let text = useTrans ? t(`menu${i}`) : i;
+
+        const lastIndex = idx === Object.keys(items).length - 1;
         if (typeof e === 'string') {
           if (findText) {
             const io = text.toLowerCase().indexOf(findText.toLowerCase());
@@ -35,7 +40,7 @@ const ListItems = (props: any) => {
               text = (
                 <>
                   {text.substr(0, io)}
-                  <b className="resalt">{findText}</b>
+                  <b className="resalt">{text.substr(io, findText.length)}</b>
                   {text.substr(io + findText.length)}
                 </>
               );
@@ -43,13 +48,15 @@ const ListItems = (props: any) => {
           }
           return (
             <div
-              className={classNames('list-item', {
+              className={classNames('list-item', className, {
                 selected: e.toLocaleLowerCase() === selected?.toLocaleLowerCase(),
+                'last-item': lastIndex,
+                expanded: expanded.includes(i),
               })}
-              style={{ paddingLeft: level * menuMargin + 6 }}
               onClick={() => handleClick(e, i)}
             >
-              {menuTitles[i] || text}
+              <MenuLiner level={level} margin={menuMargin} />
+              <div className="item-text">{menuTitles[i] || text}</div>
             </div>
           );
         } else {
@@ -58,22 +65,23 @@ const ListItems = (props: any) => {
             <>
               {i && (
                 <div
-                  className={classNames('list-item', {
+                  className={classNames('list-item', className, {
                     selected: e === selected,
+                    expanded: expanded.includes(i),
+                    'last-item': lastIndex,
                   })}
-                  style={{ paddingLeft: level * menuMargin + 6 }}
                   onClick={() => handleClick(e, i, true)}
                 >
-                  <span
-                    className={classNames({
-                      expanded: expanded.includes(i),
-                    })}
-                  ></span>{' '}
-                  {menuTitles[i] || (useTrans ? t(`menu${i}`) : i)}
+                  <MenuLiner level={level} margin={menuMargin} />
+                  <div className="item-text">
+                    <Icon type={expanded.includes(i) ? 'minus' : 'plus'} />
+                    {menuTitles[i] || (useTrans ? t(`menu${i}`) : i)}
+                  </div>
                 </div>
               )}
               {(expanded.includes(i) || level === newLevel) && (
                 <ListItems
+                  className={classNames(className, lastIndex ? `no-level-${level}` : '')}
                   items={e}
                   path={`${path}/${i}/`}
                   onClick={onClick}
@@ -195,7 +203,7 @@ const MenuListComponent = (props: any) => {
           level={level}
           menuTitles={menuTitles}
           useTrans={useTrans}
-          menuMargin={asBlue ? 12 : 24}
+          menuMargin={asBlue ? 24 : 24}
           expanded={expandedList}
           onToggled={onToggled}
           findText={textValue}

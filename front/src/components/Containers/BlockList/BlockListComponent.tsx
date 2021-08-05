@@ -5,7 +5,7 @@ import { CardContainer } from '../';
 import { t } from '../../../config/i18n';
 
 import { TableList } from '..';
-import { Asn, Icon, PercentLine, UpDownArrow } from '../../Common';
+import { Asn, CustomButton, Icon, PercentLine, UpDownArrow } from '../../Common';
 
 const BlockListComponent = (props: any) => {
   const { blockHeaderProps = {}, data = {}, actions = () => [], dtbuttons = [], ...rest } = props;
@@ -14,7 +14,7 @@ const BlockListComponent = (props: any) => {
 
   const asnOptions = (r: any) => {
     return r.map((i: string[], n: number) => {
-      return [i[0], i[1], [i[3], i[4]], i[2], i[5]];
+      return [i[0], i[1], [i[3], i[4]], i[2], i[5], actions().length && [...actions()]];
     });
   };
 
@@ -32,6 +32,7 @@ const BlockListComponent = (props: any) => {
     ),
     (v: any) => <UpDownArrow value={v} />,
     (v: any) => <PercentLine percent={v} />,
+    (v: any) => <CustomButton icon="dots" actions={v} />,
   ];
 
   return (

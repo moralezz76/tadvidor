@@ -40,6 +40,7 @@ const Dashboard = (props: any) => {
 
   const handleMenuClick = (menu: string) => {
     const { path } = match;
+
     const pathname = buildPathWithParams(path, { menu });
     history.push(pathname);
   };
@@ -79,6 +80,7 @@ const Dashboard = (props: any) => {
                   onClick={handleMenuClick}
                   selected={menu}
                   expanded={['ProviderNetwork']}
+                  asBlue={true}
                 />
               </CardContainer>
             </div>

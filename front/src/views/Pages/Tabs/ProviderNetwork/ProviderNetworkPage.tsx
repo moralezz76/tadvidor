@@ -93,6 +93,7 @@ const ProviderNetworkPage = (props: any) => {
                   onClick={handleMenuClick}
                   selected={menu}
                   expanded={['Customers']}
+                  asBlue={true}
                 />
               </CardContainer>
             </div>

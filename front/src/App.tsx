@@ -69,8 +69,8 @@ const App = (props: appProps) => {
                   path={path}
                   render={() => {
                     if (userLogued && (path === loginPath || path === homePath)) {
-                      const startAppOn = routesAndViews.INTERNET_INDEX;
-                      const { path, defaultState } = startAppOn;
+                      const appStartPath = routesAndViews.INTERNET_INDEX;
+                      const { path, defaultState } = appStartPath;
                       const pathname = buildPathWithParams(path, defaultState);
                       return (
                         <Redirect

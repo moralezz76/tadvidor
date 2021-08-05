@@ -12,16 +12,19 @@ import {
   BsCaretDownFill,
   BsList,
   BsEye,
+  BsThreeDots,
 } from 'react-icons/bs';
 import { RiHeartFill, RiHeartAddLine, RiHeartLine } from 'react-icons/ri';
 import { VscGraph } from 'react-icons/vsc';
 import { BiBuildings } from 'react-icons/bi';
-import { AiOutlineGlobal, AiFillSafetyCertificate, AiOutlineShoppingCart } from 'react-icons/ai';
+import { AiOutlineGlobal, AiFillSafetyCertificate } from 'react-icons/ai';
 import { FaAngleDoubleRight, FaXRay } from 'react-icons/fa';
 import { RiShieldCheckFill, RiShieldCheckLine } from 'react-icons/ri';
 import { HiOutlineShoppingCart } from 'react-icons/hi';
 import { MdAddShoppingCart } from 'react-icons/md';
 import { GrGroup } from 'react-icons/gr';
+import { FiPlusSquare, FiMinusSquare } from 'react-icons/fi';
+import { IoMdRadioButtonOn, IoMdRadioButtonOff } from 'react-icons/io';
 
 import './IconCommon.scss';
 
@@ -53,7 +56,12 @@ const IconCommon = (props: any) => {
     wholesale: <MdAddShoppingCart {...rest} />,
     customer_growth: <GrGroup {...rest} />,
     peering_base: <BsEye {...rest} />,
-    backbone: <FaXRay {...FaXRay} />,
+    backbone: <FaXRay {...rest} />,
+    plus: <FiPlusSquare {...rest} />,
+    minus: <FiMinusSquare {...rest} />,
+    radio: <IoMdRadioButtonOn {...rest} />,
+    radioE: <IoMdRadioButtonOff {...rest} />,
+    dots: <BsThreeDots {...rest} />,
   };
 
   return refs[type] || null;

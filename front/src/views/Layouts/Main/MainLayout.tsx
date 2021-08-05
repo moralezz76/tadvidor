@@ -87,7 +87,6 @@ const MainLayout = (props: IMainLayoutProps) => {
     const {
       params: { filter_value = 'global', find_by = 'markets' },
     } = match;
-
     const route = buildPathWithParams(tabIndexRoutes[i][0].path, {
       ...tabIndexRoutes[i][0].defaultState,
       id_asn: currentAsn,

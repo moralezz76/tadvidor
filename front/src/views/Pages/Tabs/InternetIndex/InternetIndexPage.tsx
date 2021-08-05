@@ -45,9 +45,9 @@ const InternetIndexPage = (props: any) => {
   const handleMenuClick = (filter_value: any, find_by: any) => {
     const { path, defaultState } = routes.INTERNET_INDEX;
     const pathname = buildPathWithParams(path, {
+      ...defaultState,
       find_by,
       filter_value,
-      ...defaultState,
     });
     history.push(pathname);
   };
@@ -60,11 +60,17 @@ const InternetIndexPage = (props: any) => {
     let { target } = e;
     do {
       const { className = '' } = target;
-      if (className && className.indexOf('toggled') !== -1) return false;
+      if (typeof className === 'string' && className.indexOf('toggled') !== -1) return false;
       target = target.parentNode;
     } while (target);
     setMarketToggled('');
   };
+
+  const blockActions = (v: any) => [
+    {
+      label: 'action #1',
+    },
+  ];
 
   return (
     <>
@@ -82,7 +88,7 @@ const InternetIndexPage = (props: any) => {
                       </button>
                     </div>
                   </FilterInfo>
-                  <BlockList data={blocks} className="col-md-6 col-sm-12" />
+                  <BlockList data={blocks} className="col-md-6 col-sm-12" actions={blockActions} />
                 </CardContainer>
               </ZoneView>
             </div>
@@ -108,6 +114,7 @@ const InternetIndexPage = (props: any) => {
                     useTrans={false}
                     selected={filter_value.toUpperCase()}
                     expanded={['Global']}
+                    findText={t('textFindByCountry')}
                   />
                 </CardContainer>
                 <CardContainer title={t('titleViewByRankings')}>

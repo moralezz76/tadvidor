@@ -1,0 +1,67 @@
+.menu-liner {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  height: 26px;
+
+  .level-main {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    height: 26px;
+    flex: 20;
+    .menu-bock1 {
+      border-left: 1px dotted #ccc;
+      border-bottom: 1px dotted #ccc;
+      flex: 1;
+    }
+
+    .menu-bock2 {
+      border-left: 1px dotted #ccc;
+      flex: 1;
+    }
+
+    > div {
+      flex: 1;
+      display: flex;
+    }
+
+    .icon {
+      position: absolute;
+      right: -6px;
+      margin-top: 6px !important;
+    }
+  }
+  .level {
+    flex: 1;
+    border-left: 1px dotted #ccc;
+  }
+}
+.no-level-0 {
+  .level-0 {
+    border-left: none !important;
+  }
+}
+
+.no-level-1 {
+  .level-1 {
+    border-left: none !important;
+  }
+}
+
+.no-level-2 {
+  .level-2 {
+    border-left: none !important;
+  }
+}
+
+.no-level-3 {
+  .level-3 {
+    border-left: none !important;
+  }
+}
+.no-level-4 {
+  .level-4 {
+    border-left: none !important;
+  }
+}

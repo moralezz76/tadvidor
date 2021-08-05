@@ -2,6 +2,7 @@ import React, { useRef, useState } from 'react';
 import classNames from 'classnames';
 import './CustomButtonCommon.scss';
 import { ToggleList } from '../../Containers';
+import { Icon } from '..';
 
 const CustomButtonCommon = (props: any) => {
   const { icon, onClick = () => {}, disabled, color, actions = [], className, title } = props;
@@ -24,6 +25,7 @@ const CustomButtonCommon = (props: any) => {
 
   Object.keys(_actions).map((key: any, i: number) => {
     const it = _actions[key];
+
     options.push([i, it.label]);
     allItems.push(it);
   });
@@ -82,7 +84,7 @@ const CustomButtonCommon = (props: any) => {
           clickOnMe = true;
         }}
       >
-        {icon}
+        {icon && <Icon type={icon} />}
         {title && <span>{title}</span>}
       </div>
       {options.length > 0 && (
