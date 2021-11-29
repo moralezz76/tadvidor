@@ -6,7 +6,6 @@ import { t } from '../../../config/i18n';
 const TableListComponent = (props: any) => {
   const {
     title,
-    value,
     list = [],
     className,
     maxItems = 0,

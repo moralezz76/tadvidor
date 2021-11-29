@@ -5,72 +5,90 @@
     }
   }
 
-  .block-list {
-    .table-block {
-      .cell-0 {
-        b {
-          font-size: 16px;
+  .zone-view {
+    > .card-container {
+      &.block-container {
+        > .card-container-body {
+          > .block-list {
+            > .table-list {
+              > .list {
+                > .list-row {
+                  > .cell-0,
+                  > .cell-1 {
+                    max-width: 34px !important;
+                    font-size: 18px;
+                    font-weight: bold;
+                    svg {
+                      font-size: 22px !important;
+                    }
+                  }
+                  > .cell-2 {
+                    display: inline-block !important;
+                    color: #2c84f3;
+                    flex: 5 !important;
+                  }
+
+                  > .cell-3 {
+                    max-width: 48px !important;
+                  }
+
+                  > .cell-4 {
+                    min-width: 120px !important;
+                  }
+                  > .cell-1 {
+                    svg {
+                      color: #2c84f3;
+                      font-size: 18px;
+                    }
+                  }
+                  > .cell-5 {
+                    max-width: 40px !important ;
+                    display: flex;
+                    justify-content: center;
+                    align-content: center;
+                  }
+                }
+              }
+            }
+          }
         }
       }
-      .cell-0,
-      .cell-1,
-      .cell-3 {
-        max-width: 34px;
-      }
-
-      .cell-2 {
-        display: inline-block !important;
-      }
-      .cell-4 {
-        max-width: 100px;
-      }
     }
   }
-  .as-box {
-    border: 1px solid #ccc;
-    padding: 0px 5px;
-    border-radius: 3px;
-    background-color: rgb(243, 241, 226);
-    font-size: 12px;
-    font-weight: bold;
-    display: flex;
-    justify-content: center;
-  }
 
-  .filter-extra {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-  }
-
-  .list {
+  .table-block1 {
+    .cell-0 {
+      b {
+        font-size: 16px;
+      }
+    }
     .cell-0,
-    .cell-1 {
-      max-width: 34px !important;
-      font-size: 18px;
-      font-weight: bold;
-      svg {
-        font-size: 22px !important;
-      }
+    .cell-1,
+    .cell-3 {
+      max-width: 34px;
     }
+
     .cell-2 {
       display: inline-block !important;
-      color: #2c84f3;
-      flex: 5 !important;
     }
-
-    .cell-3 {
-      max-width: 48px !important;
-    }
-
     .cell-4 {
-      min-width: 120px !important;
-    }
-    .cell-1 {
-      svg {
-        color: #2c84f3;
-        font-size: 18px;
-      }
+      max-width: 100px;
     }
   }
+}
+.as-box {
+  border: 1px solid #ccc;
+  padding: 0px 5px;
+  border-radius: 3px;
+  background-color: rgb(243, 241, 226);
+  font-size: 12px;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+}
+
+.filter-extra {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 }

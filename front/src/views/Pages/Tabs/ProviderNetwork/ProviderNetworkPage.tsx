@@ -24,7 +24,6 @@ const ProviderNetworkPage = (props: any) => {
   const [IPv4AsCustomers, SetIPv4AsCustomers] = useState<any>([]);
 
   const [menu, setMenu] = useState<any>('');
-  const [asName, setAsName] = useState<any>('');
   const [id_country, setIdCountry] = useState<any>('');
   const [profileData, setData] = useState<any>({});
 
@@ -48,7 +47,7 @@ const ProviderNetworkPage = (props: any) => {
         }
         setData(fakeProfileData);
       });
-  }, [menu, id_country, id_asn]);
+  }, [menu, id_country, id_asn, callUrlService]); //***
 
   const handleMenuClick = (menu: string) => {
     const {
@@ -60,8 +59,8 @@ const ProviderNetworkPage = (props: any) => {
   };
 
   const onRowClick = (item: any) => {
-    const [, , [id_asn, asName]] = item;
-    setAsName(asName);
+    const [, , [id_asn]] = item;
+
     const to = buildPathWithParams(routes.PROVIDER.path, {
       ...routes.PROVIDER.defaultState,
       id_asn: `AS${id_asn}`,

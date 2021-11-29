@@ -1,5 +1,5 @@
 import React from 'react';
-import { Flag, Icon } from '..';
+import { Flag } from '..';
 import { CountryZones, MenuRankings } from '../../../utils/Helpers';
 import './FilterInfoCommon.scss';
 

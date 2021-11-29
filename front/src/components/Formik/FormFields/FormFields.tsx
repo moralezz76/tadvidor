@@ -138,7 +138,7 @@ const FormFields = (props: IFormFieldsProps) => {
 
     //////console.log(events);
 
-    const testValidation = ['file', 'datetime']; // for use of |validation
+    //const testValidation = ['file', 'datetime']; // for use of |validation
     const info: IGenericObject = {
       [types[type] || 'string']: true,
       //...events,

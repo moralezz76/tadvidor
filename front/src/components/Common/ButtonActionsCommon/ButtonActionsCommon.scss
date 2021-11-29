@@ -1,0 +1,24 @@
+.button-actions {
+  display: flex;
+  min-width: 23px;
+  min-height: 22px;
+  flex-direction: column;
+
+  .content {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &.rounded {
+      border-radius: 50% !important;
+    }
+    &:hover {
+      background-color: #ffffff;
+    }
+
+    &.selected {
+      background-color: #999999 !important;
+      color: white;
+    }
+  }
+}

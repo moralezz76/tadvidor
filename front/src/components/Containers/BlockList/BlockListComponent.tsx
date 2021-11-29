@@ -1,21 +1,30 @@
-import React, { useState } from 'react';
-import classNames from 'classnames';
+import React from 'react';
 import './BlockListComponent.scss';
-import { CardContainer } from '../';
 import { t } from '../../../config/i18n';
 
 import { TableList } from '..';
-import { Asn, CustomButton, Icon, PercentLine, UpDownArrow } from '../../Common';
+import { Asn, ButtonActions, Icon, PercentLine, UpDownArrow } from '../../Common';
 
 const BlockListComponent = (props: any) => {
-  const { blockHeaderProps = {}, data = {}, actions = () => [], dtbuttons = [], ...rest } = props;
+  const { data = {}, actions = [], ...rest } = props;
 
-  const handleItemClick = (v: any) => {};
-
-  const asnOptions = (r: any) => {
+  const asnOptions = (arr: any, it: string) => {
+    const r = arr[it];
     return r.map((i: string[], n: number) => {
-      return [i[0], i[1], [i[3], i[4]], i[2], i[5], actions().length && [...actions()]];
+      return [i[0], i[1], [i[3], i[4]], i[2], i[5], [actions, it, n]];
     });
+  };
+
+  const actionRender: any = [
+    null,
+    (v: any) => {
+      return <Icon type={v} />;
+    },
+  ];
+
+  const onRowClick = ([id]: any, n: any, it: string) => {
+    const { onClick = () => {} } = actions[id];
+    onClick(n, it);
   };
 
   const render: any = [
@@ -32,16 +41,25 @@ const BlockListComponent = (props: any) => {
     ),
     (v: any) => <UpDownArrow value={v} />,
     (v: any) => <PercentLine percent={v} />,
-    (v: any) => <CustomButton icon="dots" actions={v} />,
+    ([v, it, n]: any) => (
+      <ButtonActions
+        icon="dots"
+        actions={v}
+        actionRender={actionRender}
+        onRowClick={(v: any) => onRowClick(v, it, n)}
+        roundedIcon
+      />
+    ),
   ];
 
   return (
     <div className="block-list row">
       {Object.keys(data).map((blockTitle: any) => (
         <TableList
+          key={blockTitle}
           title={t(`title${blockTitle}`)}
           className="table-block"
-          list={asnOptions(data[blockTitle])}
+          list={asnOptions(data, blockTitle)}
           maxItems={10}
           render={render}
           {...rest}

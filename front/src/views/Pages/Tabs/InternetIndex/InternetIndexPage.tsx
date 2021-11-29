@@ -2,8 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { RootState } from 'ReduxTypes';
 import { CardContainer, MenuList, ZoneView, BlockList } from '../../../../components/Containers';
-import { FaLongArrowAltUp, FaLongArrowAltDown } from 'react-icons/fa';
-import { AiOutlineStar, AiFillStar } from 'react-icons/ai';
 import Loading from '../../Loading/Loading';
 import './InternetIndexPage.scss';
 import { bindActionCreators, Dispatch } from 'redux';
@@ -11,7 +9,7 @@ import { callUrlServiceAction } from '../../../../bin/redux_session/actions';
 import { useHistory, useRouteMatch } from 'react-router-dom';
 import { buildPathWithParams, CountryZones } from '../../../../utils/Helpers';
 import { t } from '../../../../config/i18n';
-import { Asn, FilterInfo, Icon, PercentLine } from '../../../../components/Common';
+import { FilterInfo, Icon } from '../../../../components/Common';
 import routes from '../../../../config/routesAndViews';
 import classNames from 'classnames';
 
@@ -19,7 +17,7 @@ const InternetIndexPage = (props: any) => {
   let match = useRouteMatch<any>();
   let history = useHistory();
 
-  const { id_asn, callUrlService } = props;
+  const { callUrlService } = props;
   const [waiting, setAwaiting] = useState(true);
 
   const [viewByRankings, setViewByRankings] = useState<any>({});
@@ -32,6 +30,7 @@ const InternetIndexPage = (props: any) => {
 
   useEffect(() => {
     setAwaiting(true);
+    //console.log(match);
     callUrlService('internet_index', { find_by, filter_value }, 'get', ({ data }: any) => {
       if (!data) return;
       const { menu_rankings, blocks } = data;
@@ -40,6 +39,7 @@ const InternetIndexPage = (props: any) => {
       setBlocks(blocks);
       setAwaiting(false);
     });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [match]);
 
   const handleMenuClick = (filter_value: any, find_by: any) => {
@@ -66,9 +66,18 @@ const InternetIndexPage = (props: any) => {
     setMarketToggled('');
   };
 
-  const blockActions = (v: any) => [
+  const blockActions = [
     {
+      icon: 'bookmark',
       label: 'action #1',
+      onClick: (it: any, n: any) => {
+        const itemSel = blocks[it][n];
+        //console.log(itemSel);
+      },
+    },
+    {
+      icon: 'bookmarkL',
+      label: 'action #2',
     },
   ];
 

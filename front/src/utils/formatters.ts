@@ -1,5 +1,4 @@
 import moment from 'moment';
-import NavbarCollapse from 'react-bootstrap/esm/NavbarCollapse';
 import { t } from '../config/i18n';
 
 export class Formatters {

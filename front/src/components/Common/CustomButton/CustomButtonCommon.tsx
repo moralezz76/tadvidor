@@ -5,7 +5,16 @@ import { ToggleList } from '../../Containers';
 import { Icon } from '..';
 
 const CustomButtonCommon = (props: any) => {
-  const { icon, onClick = () => {}, disabled, color, actions = [], className, title } = props;
+  const {
+    icon,
+    onClick = () => {},
+    disabled,
+    color,
+    actions = [],
+    className,
+    title,
+    hint = '',
+  } = props;
 
   let clickOnMe = false;
 
@@ -23,9 +32,8 @@ const CustomButtonCommon = (props: any) => {
   let options: any = [];
   let allItems: any = [];
 
-  Object.keys(_actions).map((key: any, i: number) => {
+  Object.keys(_actions).forEach((key: any, i: number) => {
     const it = _actions[key];
-
     options.push([i, it.label]);
     allItems.push(it);
   });
@@ -38,6 +46,7 @@ const CustomButtonCommon = (props: any) => {
   };
 
   const handleBlur = () => {
+    console.log('lost');
     if (!clickOnMe)
       setTimeout(() => {
         setToggled(false);
@@ -78,6 +87,7 @@ const CustomButtonCommon = (props: any) => {
       className={classNames(className, 'custom-button', { disabled })}
       onClick={handleClick}
       style={{ color }}
+      title={hint}
     >
       <div
         onMouseDown={(e: any) => {

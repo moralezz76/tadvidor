@@ -10,7 +10,6 @@ export const drawChart = (props: IGraphBallAndStickProps) => {
   const { id, info } = props;
 
   const strokeWidth = 1;
-  const dotRadius = 1;
   const margin = { top: 30, bottom: 30, left: 50, right: 20 };
   const width = 540 - margin.left - margin.right - strokeWidth * 2;
   const height = 250 - margin.top - margin.bottom;

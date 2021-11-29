@@ -7,6 +7,7 @@ import TableList from './TableList/TableListComponent';
 import PanelCustom from './PanelCustom/PanelCustomComponent';
 import ZoneView from './ZoneView/ZoneViewComponent';
 import BlockList from './BlockList/BlockListComponent';
+import ListContainer from './ListContainer/ListContainer';
 
 export {
   CardContainer,
@@ -18,4 +19,5 @@ export {
   PanelCustom,
   ZoneView,
   BlockList,
+  ListContainer,
 };

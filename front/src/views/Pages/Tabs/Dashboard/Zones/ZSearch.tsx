@@ -5,9 +5,7 @@ import { RootState } from 'ReduxTypes';
 import { bindActionCreators, Dispatch } from 'redux';
 import { connect } from 'react-redux';
 import { callUrlServiceAction } from '../../../../../bin/redux_session/actions';
-import { RiHeartAddLine } from 'react-icons/ri';
 import { t } from '../../../../../config/i18n';
-import axios from 'axios';
 import { Icon } from '../../../../../components/Common';
 
 const ZSearch = (props: any) => {

@@ -25,15 +25,13 @@ const ToggleList = (props: any) => {
     withScroll = true,
     headerProps,
     rowClasses,
-    toggleType,
+    toggleType = 'list',
     valueFormat = (v: any) => v,
   } = props;
 
   const iniStyle = {
     minHeight: 110,
   };
-
-  //console.log(values);
 
   const [parentAbsolute, setParentAbsolute] = useState<any>(null);
   const [parentStyle, setParentStyle] = useState<any>(iniStyle);
@@ -68,10 +66,6 @@ const ToggleList = (props: any) => {
         width: clientWidth + 2,
       });
 
-      console.log({
-        ...iniStyle,
-        width: clientWidth + 2,
-      });
       setLoading(false);
     };
 
@@ -126,6 +120,8 @@ const ToggleList = (props: any) => {
       />
     ),
   };
+
+  //alert(222);
 
   return (
     loading === false &&

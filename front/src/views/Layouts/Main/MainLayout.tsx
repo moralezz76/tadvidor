@@ -35,6 +35,7 @@ const MainLayout = (props: IMainLayoutProps) => {
 
   useEffect(() => {
     id_asn && setCurrentAsn(id_asn);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id_asn]);
 
   const [currentAsn, setCurrentAsn] = useState<any>(storage.get('asn_name'));
@@ -81,6 +82,7 @@ const MainLayout = (props: IMainLayoutProps) => {
     });
 
     setActiveTab(active);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [match]);
 
   const handleClickOnTab = (i: number) => {

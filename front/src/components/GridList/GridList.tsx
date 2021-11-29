@@ -28,8 +28,6 @@ const GridList = (props: any) => {
     rowClasses = () => [],
   } = props;
 
-  //  console.log(values);
-
   const zones = [C._FIXED, C._DATA];
   const scrollEl = useRef<any>(null);
   const scrollLeftEl = useRef<any>(null);
@@ -247,7 +245,7 @@ const GridList = (props: any) => {
                 {z === C._FIXED || !withScroll ? (
                   getContent(z)
                 ) : (
-                  <Scrollbars autoHeight ref={scrollEl} onScroll={handleScroll} autoHide>
+                  <Scrollbars ref={scrollEl} onScroll={handleScroll} autoHide>
                     {getContent(z)}
                   </Scrollbars>
                 )}

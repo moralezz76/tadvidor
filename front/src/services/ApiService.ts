@@ -105,7 +105,6 @@ export class ApiService {
       join = url.includes('?') ? '&' : '?';
     }
 
-    console.log(url + join + qs);
     if (responseWithHeaders) {
       return this.resolveResponseWithHeaders(this.instance.get(url + join + qs, options));
     } else {

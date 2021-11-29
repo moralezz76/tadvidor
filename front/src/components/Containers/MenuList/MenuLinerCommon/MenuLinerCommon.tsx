@@ -2,8 +2,6 @@ import classNames from 'classnames';
 import _ from 'lodash';
 import React from 'react';
 import { Icon } from '../../../Common';
-import { t } from '../../../../config/i18n';
-import { FormFields } from '../../../Formik';
 
 import './MenuLinerCommon.scss';
 
@@ -12,7 +10,7 @@ const MenuLinerCommon = (props: any) => {
   return (
     <div className="item-padding menu-liner">
       {_.range(level).map((l: number) => (
-        <div className={`level level-${l}`} style={{ minWidth: margin }} />
+        <div key={`level-${l}`} className={`level level-${l}`} style={{ minWidth: margin }} />
       ))}
       <div
         style={{ minWidth: margin + 1, maxWidth: margin + 1 }}

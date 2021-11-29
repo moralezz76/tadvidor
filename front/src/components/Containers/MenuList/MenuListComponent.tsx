@@ -54,6 +54,7 @@ const ListItems = (props: any) => {
                 expanded: expanded.includes(i),
               })}
               onClick={() => handleClick(e, i)}
+              key={text}
             >
               <MenuLiner level={level} margin={menuMargin} />
               <div className="item-text">{menuTitles[i] || text}</div>
@@ -62,7 +63,7 @@ const ListItems = (props: any) => {
         } else {
           const newLevel = level + (i ? 1 : 0);
           return (
-            <>
+            <div key={text}>
               {i && (
                 <div
                   className={classNames('list-item', className, {
@@ -95,7 +96,7 @@ const ListItems = (props: any) => {
                   findText={findText}
                 />
               )}
-            </>
+            </div>
           );
         }
       })}
@@ -124,11 +125,11 @@ const MenuListComponent = (props: any) => {
 
   useEffect(() => {
     setSel(selected);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selected]);
 
   const findExpanded = (arr_expanded: string[], arr_list: any): any => {
     let ret: string[] = [];
-    let find: string[] = [];
     Object.keys(arr_list).forEach((ii: string) => {
       const vv = arr_list[ii];
 
@@ -157,6 +158,7 @@ const MenuListComponent = (props: any) => {
   useEffect(() => {
     let newExpanded = findExpanded([], list).filter((v: any, i: any, a: any) => a.indexOf(v) === i);
     setExpandedList(newExpanded);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [expanded, textValue]);
 
   const handleClick = (value: string, name: string) => {

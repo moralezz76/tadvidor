@@ -1,8 +1,5 @@
 import React from 'react';
 import { Icon } from '..';
-import { t } from '../../../config/i18n';
-import { FormFields } from '../../Formik';
-
 import './UpDownArrowCommon.scss';
 
 const UpDownArrowCommon = (props: any) => {

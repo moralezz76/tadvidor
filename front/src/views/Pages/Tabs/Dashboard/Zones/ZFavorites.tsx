@@ -4,7 +4,6 @@ import { RootState } from 'ReduxTypes';
 import { bindActionCreators, Dispatch } from 'redux';
 import { connect } from 'react-redux';
 import { callUrlServiceAction } from '../../../../../bin/redux_session/actions';
-import { IoMdHeartDislike } from 'react-icons/io';
 import { t } from '../../../../../config/i18n';
 import { useEffect } from 'react';
 import { Icon } from '../../../../../components/Common';

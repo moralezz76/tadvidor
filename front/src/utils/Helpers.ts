@@ -18,7 +18,8 @@ export const buildPathWithParams = (path: string, params: any) => {
     finalPath = finalPath.replace(`:${key}`, params[key]);
   });
 
-  return finalPath.replace(/\([^\)\(]*\)/, '');
+  return finalPath.replace(/\([^)(]*\)/, '');
+  //return finalPath.replace(/\([^\)\(]*\)/, '');
 };
 
 export const decodeURItoJson = (data: string) => {

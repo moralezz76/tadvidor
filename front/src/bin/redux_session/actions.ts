@@ -61,7 +61,7 @@ export const callUrlServiceAction =
           finalPath = hasDataPath;
         });
 
-        console.log(finalPath, data, type);
+        //console.log(finalPath, data, type);
         // call servive, return data or generate error...
         const payload = await GlobalService.request({
           url: finalPath,

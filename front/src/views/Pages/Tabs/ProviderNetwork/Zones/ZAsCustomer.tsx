@@ -2,8 +2,6 @@ import classNames from 'classnames';
 import React from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
-import { AiFillStar, AiOutlineStar } from 'react-icons/ai';
-import { FaLongArrowAltDown, FaLongArrowAltUp } from 'react-icons/fa';
 import { Asn, Icon, PercentLine } from '../../../../../components/Common';
 import { CardContainer, PanelCustom, TableList } from '../../../../../components/Containers';
 import { t } from '../../../../../config/i18n';

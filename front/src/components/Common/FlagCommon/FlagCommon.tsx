@@ -30,7 +30,7 @@ const FlagCommon = (props: any) => {
           const separ = n < codePath.length - 2 ? <Icon type="caret" /> : null;
           const cn = n === codePath.length - 1 ? 'last' : 'zone';
           return (
-            <div className={classNames(cn, 'codepath')}>
+            <div key={i} className={classNames(cn, 'codepath')}>
               {t(`text${i}`, i)} {separ}&nbsp;
             </div>
           );

@@ -7,7 +7,6 @@ import Loading from '../../Loading/Loading';
 import './DashboardPage.scss';
 import { RootState } from 'ReduxTypes';
 import { useHistory, useRouteMatch } from 'react-router-dom';
-import { t } from '../../../../config/i18n';
 import routes from '../../../../config/routesAndViews';
 import { buildPathWithParams } from '../../../../utils/Helpers';
 import ZSearch from './Zones/ZSearch';
@@ -36,6 +35,7 @@ const Dashboard = (props: any) => {
         setAwaiting(false);
       }
     });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handleMenuClick = (menu: string) => {

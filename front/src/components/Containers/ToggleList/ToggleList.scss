@@ -1,69 +1,66 @@
 .toggle-list {
-    .grid-col-0 {
-        display: none;
+  .grid-col-0 {
+    display: none;
+  }
+
+  .no-items {
+    // list of no-items
+    color: #999999;
+    padding: 4px 10px;
+    display: inline-block;
+    font-size: 12px;
+  }
+
+  &-body {
+    margin-top: 4px;
+    background-color: white;
+    border: 1px solid #ccc;
+    //border-top: 0;
+    box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.5);
+    border-radius: 3px;
+
+    flex: 1;
+
+    &.list {
+      padding: 2px 1px;
     }
 
-    .no-items {
-        // list of no-items
-        color: #999999;
-        padding: 4px 10px;
-        display: inline-block;
-        font-size: 12px;
+    &.is-fixed {
+      //width: 100vw;
+      position: absolute;
+      z-index: 5000;
+
+      display: flex;
+
+      > DIV {
+        flex: 1;
+      }
+    }
+  }
+
+  .grid-list {
+    &-row {
+      &.over,
+      &.first {
+        background-color: #ebe8e6;
+      }
+      &.checked {
+        background-color: rgb(155, 173, 220);
+        color: white;
+      }
+      &.checked.over {
+        background-color: rgb(142, 158, 197);
+        color: #eeeeee;
+      }
+    }
+
+    &-col {
+      min-width: 100px;
     }
 
     &-body {
-        margin-top: 4px;
-        background-color: white;
-        border: 1px solid #ccc;
-        //border-top: 0;
-        box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.5);
-        border-radius: 3px;
-
-        flex: 1;
-
-        &.list {
-            padding: 2px 1px;
-        }
-
-        &.is-fixed {
-            //width: 100vw;
-            position: absolute;
-            z-index: 5000;
-
-            display: flex;
-
-            > DIV {
-                flex: 1;
-            }
-        }
+      max-height: 104px;
+      display: grid;
     }
-
-    .grid-list {
-        &-row {
-            &.over,
-            &.first {
-                background-color: #ebe8e6;
-            }
-            &.checked {
-                background-color: rgb(155, 173, 220);
-                color: white;
-            }
-            &.checked.over {
-                background-color: rgb(142, 158, 197);
-                color: #eeeeee;
-            }
-        }
-
-        &-col {
-            min-width: 100px;
-        }
-
-        &-body {
-            max-height: 104px;
-            display: grid;
-        }
-    }
-
-    .datetime {
-    }
+  }
 }
